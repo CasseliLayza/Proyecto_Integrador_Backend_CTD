@@ -1,0 +1,276 @@
+2024-10-23 00:17:37 [INFO] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23 00:17:37 [INFO] [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-23 00:17:37 [INFO] [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-23 00:17:39 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Starting ProyectoIntegradorBackendCtdC1G6Application using Java 17.0.9 on LAPTOP-FD0Q3AVF with PID 652 (D:\Proyecto_Integrador_Backend_CTD_C1_G6\target\classes started by casse in D:\Proyecto_Integrador_Backend_CTD_C1_G6)
+2024-10-23 00:17:39 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - No active profile set, falling back to 1 default profile: "default"
+2024-10-23 00:17:39 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-23 00:17:39 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-23 00:17:39 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-23 00:17:39 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 2 JPA repository interfaces.
+2024-10-23 00:17:40 [INFO] [restartedMain] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-10-23 00:17:40 [INFO] [restartedMain] o.a.c.c.StandardService - Starting service [Tomcat]
+2024-10-23 00:17:40 [INFO] [restartedMain] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2024-10-23 00:17:40 [INFO] [restartedMain] o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2024-10-23 00:17:40 [INFO] [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 979 ms
+2024-10-23 00:17:40 [INFO] [restartedMain] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-23 00:17:40 [INFO] [restartedMain] o.h.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2024-10-23 00:17:40 [INFO] [restartedMain] o.h.a.c.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-10-23 00:17:40 [INFO] [restartedMain] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-10-23 00:17:40 [INFO] [restartedMain] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-23 00:17:40 [INFO] [restartedMain] o.h.d.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-10-23 00:17:40 [INFO] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-10-23 00:17:40 [INFO] [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23 00:17:41 [WARN] [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-23 00:17:41 [DEBUG] [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-10-23 00:17:41 [DEBUG] [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerMapping - 9 mappings in 'requestMappingHandlerMapping'
+2024-10-23 00:17:41 [DEBUG] [restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-10-23 00:17:41 [DEBUG] [restartedMain] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-10-23 00:17:41 [INFO] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-23 00:17:41 [INFO] [restartedMain] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-10-23 00:17:41 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Started ProyectoIntegradorBackendCtdC1G6Application in 3.044 seconds (JVM running for 3.505)
+2024-10-23 00:17:41 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Proyecto Medic Dev  ¡¡¡¡¡¡¡¡¡¡INITIALIZED!!!!!!!!!!!... port(s): 8080
+2024-10-23 00:18:15 [INFO] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23 00:18:15 [INFO] [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-23 00:18:15 [INFO] [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-23 00:18:17 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Starting ProyectoIntegradorBackendCtdC1G6Application using Java 17.0.9 on LAPTOP-FD0Q3AVF with PID 6444 (D:\Proyecto_Integrador_Backend_CTD_C1_G6\target\classes started by casse in D:\Proyecto_Integrador_Backend_CTD_C1_G6)
+2024-10-23 00:18:17 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - No active profile set, falling back to 1 default profile: "default"
+2024-10-23 00:18:17 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-23 00:18:17 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-23 00:18:17 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-23 00:18:18 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 2 JPA repository interfaces.
+2024-10-23 00:18:18 [INFO] [restartedMain] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-10-23 00:18:18 [INFO] [restartedMain] o.a.c.c.StandardService - Starting service [Tomcat]
+2024-10-23 00:18:18 [INFO] [restartedMain] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2024-10-23 00:18:18 [INFO] [restartedMain] o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2024-10-23 00:18:18 [INFO] [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 923 ms
+2024-10-23 00:18:18 [INFO] [restartedMain] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-23 00:18:18 [INFO] [restartedMain] o.h.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2024-10-23 00:18:18 [INFO] [restartedMain] o.h.a.c.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-10-23 00:18:18 [INFO] [restartedMain] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-10-23 00:18:18 [INFO] [restartedMain] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-23 00:18:18 [INFO] [restartedMain] o.h.d.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-10-23 00:18:19 [INFO] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-10-23 00:18:19 [INFO] [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23 00:18:19 [WARN] [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-23 00:18:19 [DEBUG] [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-10-23 00:18:19 [DEBUG] [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerMapping - 9 mappings in 'requestMappingHandlerMapping'
+2024-10-23 00:18:19 [DEBUG] [restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-10-23 00:18:20 [DEBUG] [restartedMain] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-10-23 00:18:20 [INFO] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-23 00:18:20 [INFO] [restartedMain] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-10-23 00:18:20 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Started ProyectoIntegradorBackendCtdC1G6Application in 2.914 seconds (JVM running for 3.288)
+2024-10-23 00:18:20 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Proyecto Medic Dev  ¡¡¡¡¡¡¡¡¡¡INITIALIZED!!!!!!!!!!!... port(s): 8080
+2024-10-23 00:18:33 [INFO] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23 00:18:33 [INFO] [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-23 00:18:33 [INFO] [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-23 00:18:35 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Starting ProyectoIntegradorBackendCtdC1G6Application using Java 17.0.9 on LAPTOP-FD0Q3AVF with PID 11628 (D:\Proyecto_Integrador_Backend_CTD_C1_G6\target\classes started by casse in D:\Proyecto_Integrador_Backend_CTD_C1_G6)
+2024-10-23 00:18:35 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - No active profile set, falling back to 1 default profile: "default"
+2024-10-23 00:18:35 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-23 00:18:35 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-23 00:18:36 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-23 00:18:36 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 2 JPA repository interfaces.
+2024-10-23 00:18:36 [INFO] [restartedMain] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-10-23 00:18:36 [INFO] [restartedMain] o.a.c.c.StandardService - Starting service [Tomcat]
+2024-10-23 00:18:36 [INFO] [restartedMain] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2024-10-23 00:18:36 [INFO] [restartedMain] o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2024-10-23 00:18:36 [INFO] [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 939 ms
+2024-10-23 00:18:36 [INFO] [restartedMain] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-23 00:18:36 [INFO] [restartedMain] o.h.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2024-10-23 00:18:37 [INFO] [restartedMain] o.h.a.c.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-10-23 00:18:37 [INFO] [restartedMain] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-10-23 00:18:37 [INFO] [restartedMain] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-23 00:18:37 [INFO] [restartedMain] o.h.d.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-10-23 00:18:37 [INFO] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-10-23 00:18:37 [INFO] [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23 00:18:37 [WARN] [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-23 00:18:38 [DEBUG] [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-10-23 00:18:38 [DEBUG] [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerMapping - 9 mappings in 'requestMappingHandlerMapping'
+2024-10-23 00:18:38 [DEBUG] [restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-10-23 00:18:38 [DEBUG] [restartedMain] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-10-23 00:18:38 [INFO] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-23 00:18:38 [INFO] [restartedMain] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-10-23 00:18:38 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Started ProyectoIntegradorBackendCtdC1G6Application in 2.943 seconds (JVM running for 3.313)
+2024-10-23 00:18:38 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Proyecto Medic Dev  ¡¡¡¡¡¡¡¡¡¡INITIALIZED!!!!!!!!!!!... port(s): 8080
+2024-10-23 00:18:46 [INFO] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23 00:18:46 [INFO] [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-23 00:18:46 [INFO] [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-23 00:27:35 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Starting ProyectoIntegradorBackendCtdC1G6Application using Java 17.0.9 on LAPTOP-FD0Q3AVF with PID 12456 (D:\Proyecto_Integrador_Backend_CTD_C1_G6\target\classes started by casse in D:\Proyecto_Integrador_Backend_CTD_C1_G6)
+2024-10-23 00:27:35 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - No active profile set, falling back to 1 default profile: "default"
+2024-10-23 00:27:35 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-23 00:27:35 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-23 00:27:36 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-23 00:27:36 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29 ms. Found 2 JPA repository interfaces.
+2024-10-23 00:27:36 [INFO] [restartedMain] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-10-23 00:27:36 [INFO] [restartedMain] o.a.c.c.StandardService - Starting service [Tomcat]
+2024-10-23 00:27:36 [INFO] [restartedMain] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2024-10-23 00:27:36 [INFO] [restartedMain] o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2024-10-23 00:27:36 [INFO] [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 956 ms
+2024-10-23 00:27:36 [INFO] [restartedMain] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-23 00:27:36 [INFO] [restartedMain] o.h.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2024-10-23 00:27:37 [INFO] [restartedMain] o.h.a.c.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-10-23 00:27:37 [INFO] [restartedMain] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-10-23 00:27:37 [INFO] [restartedMain] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-23 00:27:37 [INFO] [restartedMain] o.h.d.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-10-23 00:27:37 [INFO] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-10-23 00:27:37 [INFO] [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23 00:27:38 [WARN] [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-23 00:27:38 [DEBUG] [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-10-23 00:27:38 [DEBUG] [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerMapping - 9 mappings in 'requestMappingHandlerMapping'
+2024-10-23 00:27:38 [DEBUG] [restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-10-23 00:27:38 [DEBUG] [restartedMain] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-10-23 00:27:38 [INFO] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-23 00:27:38 [INFO] [restartedMain] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-10-23 00:27:38 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Started ProyectoIntegradorBackendCtdC1G6Application in 3.01 seconds (JVM running for 3.38)
+2024-10-23 00:27:38 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Proyecto Medic Dev  ¡¡¡¡¡¡¡¡¡¡INITIALIZED!!!!!!!!!!!... port(s): 8080
+2024-10-23 00:28:40 [INFO] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23 00:28:40 [INFO] [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-23 00:28:40 [INFO] [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-23 00:28:42 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Starting ProyectoIntegradorBackendCtdC1G6Application using Java 17.0.9 on LAPTOP-FD0Q3AVF with PID 19376 (D:\Proyecto_Integrador_Backend_CTD_C1_G6\target\classes started by casse in D:\Proyecto_Integrador_Backend_CTD_C1_G6)
+2024-10-23 00:28:42 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - No active profile set, falling back to 1 default profile: "default"
+2024-10-23 00:28:42 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-23 00:28:42 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-23 00:28:42 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-23 00:28:42 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 2 JPA repository interfaces.
+2024-10-23 00:28:43 [INFO] [restartedMain] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-10-23 00:28:43 [INFO] [restartedMain] o.a.c.c.StandardService - Starting service [Tomcat]
+2024-10-23 00:28:43 [INFO] [restartedMain] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2024-10-23 00:28:43 [INFO] [restartedMain] o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2024-10-23 00:28:43 [INFO] [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 958 ms
+2024-10-23 00:28:43 [INFO] [restartedMain] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-23 00:28:43 [INFO] [restartedMain] o.h.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2024-10-23 00:28:43 [INFO] [restartedMain] o.h.a.c.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-10-23 00:28:43 [INFO] [restartedMain] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-10-23 00:28:43 [INFO] [restartedMain] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-23 00:28:43 [INFO] [restartedMain] o.h.d.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-10-23 00:28:44 [INFO] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-10-23 00:28:44 [INFO] [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23 00:28:44 [WARN] [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-23 00:28:44 [DEBUG] [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-10-23 00:28:44 [DEBUG] [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerMapping - 9 mappings in 'requestMappingHandlerMapping'
+2024-10-23 00:28:44 [DEBUG] [restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-10-23 00:28:44 [DEBUG] [restartedMain] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-10-23 00:28:44 [INFO] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-23 00:28:44 [INFO] [restartedMain] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-10-23 00:28:44 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Started ProyectoIntegradorBackendCtdC1G6Application in 2.949 seconds (JVM running for 3.318)
+2024-10-23 00:28:44 [INFO] [restartedMain] c.b.p.ProyectoIntegradorBackendCtdC1G6Application - Proyecto Medic Dev  ¡¡¡¡¡¡¡¡¡¡INITIALIZED!!!!!!!!!!!... port(s): 8080
+2024-10-23 00:29:31 [INFO] [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-23 00:29:31 [INFO] [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-23 00:29:31 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet - Detected StandardServletMultipartResolver
+2024-10-23 00:29:31 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2024-10-23 00:29:31 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet - Detected FixedThemeResolver
+2024-10-23 00:29:31 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3786e7b9
+2024-10-23 00:29:31 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@73aa9d6e
+2024-10-23 00:29:31 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-10-23 00:29:31 [INFO] [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet - Completed initialization in 1 ms
+2024-10-23 00:29:31 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet - GET "/users/list", parameters={}
+2024-10-23 00:29:31 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#listarUsuarios()
+2024-10-23 00:29:31 [INFO] [http-nio-8080-exec-2] c.b.p.s.i.LoginService - usuarioDtoOuts --> [UsuarioDtoOut{id=1, name='tunombrcvbndev', lastName='tuApelllido', dni='14569796', email='cassegmail.com'}, UsuarioDtoOut{id=2, name='tunombrcvbndev', lastName='tuApelllido', dni='14569776', email='cassegmail.com'}]
+2024-10-23 00:29:31 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:29:31 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[UsuarioDtoOut{id=1, name='tunombrcvbndev', lastName='tuApelllido', dni='14569796', email='cassegmai (truncated)...]
+2024-10-23 00:29:31 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet - Completed 200 OK
+2024-10-23 00:29:36 [DEBUG] [http-nio-8080-exec-3] o.s.w.s.DispatcherServlet - POST "/users/delete/users/all", parameters={}
+2024-10-23 00:29:36 [DEBUG] [http-nio-8080-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#eliminarAllUsuarios()
+2024-10-23 00:29:36 [DEBUG] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:29:36 [DEBUG] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["Todos los usuarios fueron eliminados correctamente"]
+2024-10-23 00:29:36 [DEBUG] [http-nio-8080-exec-3] o.s.w.s.DispatcherServlet - Completed 204 NO_CONTENT
+2024-10-23 00:29:40 [DEBUG] [http-nio-8080-exec-4] o.s.w.s.DispatcherServlet - GET "/users/list", parameters={}
+2024-10-23 00:29:40 [DEBUG] [http-nio-8080-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#listarUsuarios()
+2024-10-23 00:29:40 [INFO] [http-nio-8080-exec-4] c.b.p.s.i.LoginService - usuarioDtoOuts --> []
+2024-10-23 00:29:40 [DEBUG] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:29:40 [DEBUG] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[]]
+2024-10-23 00:29:40 [DEBUG] [http-nio-8080-exec-4] o.s.w.s.DispatcherServlet - Completed 200 OK
+2024-10-23 00:29:46 [DEBUG] [http-nio-8080-exec-5] o.s.w.s.DispatcherServlet - POST "/users/register", parameters={}
+2024-10-23 00:29:46 [DEBUG] [http-nio-8080-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#registraUsuario(UsuarioDtoInput)
+2024-10-23 00:29:46 [DEBUG] [http-nio-8080-exec-5] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [UsuarioDtoInput{name='tunombrcvbndev', lastName='tuApelllido', email='cassegmail.com', dni=14569746, (truncated)...]
+2024-10-23 00:29:46 [INFO] [http-nio-8080-exec-5] c.b.p.s.i.LoginService - usuario input --> UsuarioDtoInput{name='tunombrcvbndev', lastName='tuApelllido', email='cassegmail.com', dni=14569746, password='sdfghjkl'}
+2024-10-23 00:29:46 [INFO] [http-nio-8080-exec-5] c.b.p.s.i.LoginService - usuarioRegistrado --> Usuario{id=4, name='tunombrcvbndev', lastName='tuApelllido', dni=14569746, email='cassegmail.com', password='sdfghjkl'}
+2024-10-23 00:29:46 [DEBUG] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:29:46 [DEBUG] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [UsuarioDtoOut{id=4, name='tunombrcvbndev', lastName='tuApelllido', dni='14569746', email='cassegmail (truncated)...]
+2024-10-23 00:29:46 [DEBUG] [http-nio-8080-exec-5] o.s.w.s.DispatcherServlet - Completed 201 CREATED
+2024-10-23 00:29:47 [DEBUG] [http-nio-8080-exec-6] o.s.w.s.DispatcherServlet - POST "/users/register", parameters={}
+2024-10-23 00:29:47 [DEBUG] [http-nio-8080-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#registraUsuario(UsuarioDtoInput)
+2024-10-23 00:29:47 [DEBUG] [http-nio-8080-exec-6] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [UsuarioDtoInput{name='tunombrcvbndev', lastName='tuApelllido', email='cassegmail.com', dni=14569746, (truncated)...]
+2024-10-23 00:29:47 [INFO] [http-nio-8080-exec-6] c.b.p.s.i.LoginService - usuario input --> UsuarioDtoInput{name='tunombrcvbndev', lastName='tuApelllido', email='cassegmail.com', dni=14569746, password='sdfghjkl'}
+2024-10-23 00:29:47 [DEBUG] [http-nio-8080-exec-6] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.backend.proyectointegradorc1g6.exception.GlobalExceptionHandler#manejarDniDuplicadoException(DniDuplicadoException)
+2024-10-23 00:29:47 [DEBUG] [http-nio-8080-exec-6] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:29:47 [DEBUG] [http-nio-8080-exec-6] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{mensaje=Recurso no registrado: El DNI 14569746 que intenta registrar ya existe en el sistema}]
+2024-10-23 00:29:47 [WARN] [http-nio-8080-exec-6] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.backend.proyectointegradorc1g6.exception.DniDuplicadoException: El DNI 14569746 que intenta registrar ya existe en el sistema]
+2024-10-23 00:29:47 [DEBUG] [http-nio-8080-exec-6] o.s.w.s.DispatcherServlet - Completed 409 CONFLICT
+2024-10-23 00:30:07 [DEBUG] [http-nio-8080-exec-7] o.s.w.s.DispatcherServlet - DELETE "/users/delete/1", parameters={}
+2024-10-23 00:30:07 [DEBUG] [http-nio-8080-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#eliminarUsuario(Long)
+2024-10-23 00:30:07 [INFO] [http-nio-8080-exec-7] c.b.p.s.i.LoginService - inputId --> 1
+2024-10-23 00:30:07 [INFO] [http-nio-8080-exec-7] c.b.p.s.i.LoginService - usuarioBuscado --> null
+2024-10-23 00:30:07 [INFO] [http-nio-8080-exec-7] c.b.p.s.i.LoginService - usuarioBuscado, no existe verificar --> 1
+2024-10-23 00:30:07 [INFO] [http-nio-8080-exec-7] c.b.p.s.i.LoginService - No existe registro de paciente con id: 1
+2024-10-23 00:30:07 [DEBUG] [http-nio-8080-exec-7] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.backend.proyectointegradorc1g6.exception.GlobalExceptionHandler#manejarResourceNotFoundException(ResourceNotFoundException)
+2024-10-23 00:30:07 [DEBUG] [http-nio-8080-exec-7] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:30:07 [DEBUG] [http-nio-8080-exec-7] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{mensaje=Recurso no encontrado: No existe registro de paciente con id: 1}]
+2024-10-23 00:30:07 [WARN] [http-nio-8080-exec-7] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.backend.proyectointegradorc1g6.exception.ResourceNotFoundException: No existe registro de paciente con id: 1]
+2024-10-23 00:30:07 [DEBUG] [http-nio-8080-exec-7] o.s.w.s.DispatcherServlet - Completed 404 NOT_FOUND
+2024-10-23 00:30:15 [DEBUG] [http-nio-8080-exec-8] o.s.w.s.DispatcherServlet - GET "/users/list", parameters={}
+2024-10-23 00:30:15 [DEBUG] [http-nio-8080-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#listarUsuarios()
+2024-10-23 00:30:15 [INFO] [http-nio-8080-exec-8] c.b.p.s.i.LoginService - usuarioDtoOuts --> [UsuarioDtoOut{id=4, name='tunombrcvbndev', lastName='tuApelllido', dni='14569746', email='cassegmail.com'}]
+2024-10-23 00:30:15 [DEBUG] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:30:15 [DEBUG] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[UsuarioDtoOut{id=4, name='tunombrcvbndev', lastName='tuApelllido', dni='14569746', email='cassegmai (truncated)...]
+2024-10-23 00:30:15 [DEBUG] [http-nio-8080-exec-8] o.s.w.s.DispatcherServlet - Completed 200 OK
+2024-10-23 00:30:22 [DEBUG] [http-nio-8080-exec-9] o.s.w.s.DispatcherServlet - DELETE "/users/delete/4", parameters={}
+2024-10-23 00:30:22 [DEBUG] [http-nio-8080-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#eliminarUsuario(Long)
+2024-10-23 00:30:22 [INFO] [http-nio-8080-exec-9] c.b.p.s.i.LoginService - inputId --> 4
+2024-10-23 00:30:22 [INFO] [http-nio-8080-exec-9] c.b.p.s.i.LoginService - usuarioBuscado --> Usuario{id=4, name='tunombrcvbndev', lastName='tuApelllido', dni=14569746, email='cassegmail.com', password='sdfghjkl'}
+2024-10-23 00:30:22 [INFO] [http-nio-8080-exec-9] c.b.p.s.i.LoginService - usuarioEncontrado --> UsuarioDtoOut{id=4, name='tunombrcvbndev', lastName='tuApelllido', dni='14569746', email='cassegmail.com'}
+2024-10-23 00:30:22 [INFO] [http-nio-8080-exec-9] c.b.p.s.i.LoginService - Paciente eliminado, con id --> 4
+2024-10-23 00:30:22 [DEBUG] [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:30:22 [DEBUG] [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["Usuario eliminado correctamente"]
+2024-10-23 00:30:22 [DEBUG] [http-nio-8080-exec-9] o.s.w.s.DispatcherServlet - Completed 204 NO_CONTENT
+2024-10-23 00:30:29 [DEBUG] [http-nio-8080-exec-10] o.s.w.s.DispatcherServlet - GET "/users/list", parameters={}
+2024-10-23 00:30:29 [DEBUG] [http-nio-8080-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#listarUsuarios()
+2024-10-23 00:30:29 [INFO] [http-nio-8080-exec-10] c.b.p.s.i.LoginService - usuarioDtoOuts --> []
+2024-10-23 00:30:29 [DEBUG] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:30:29 [DEBUG] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[]]
+2024-10-23 00:30:29 [DEBUG] [http-nio-8080-exec-10] o.s.w.s.DispatcherServlet - Completed 200 OK
+2024-10-23 00:30:37 [DEBUG] [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet - POST "/users/delete/users/all", parameters={}
+2024-10-23 00:30:37 [DEBUG] [http-nio-8080-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#eliminarAllUsuarios()
+2024-10-23 00:30:37 [DEBUG] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:30:37 [DEBUG] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["Todos los usuarios fueron eliminados correctamente"]
+2024-10-23 00:30:37 [DEBUG] [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet - Completed 204 NO_CONTENT
+2024-10-23 00:30:42 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet - POST "/users/register", parameters={}
+2024-10-23 00:30:42 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#registraUsuario(UsuarioDtoInput)
+2024-10-23 00:30:42 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [UsuarioDtoInput{name='tunombrcvbndev', lastName='tuApelllido', email='cassegmail.com', dni=14569746, (truncated)...]
+2024-10-23 00:30:42 [INFO] [http-nio-8080-exec-2] c.b.p.s.i.LoginService - usuario input --> UsuarioDtoInput{name='tunombrcvbndev', lastName='tuApelllido', email='cassegmail.com', dni=14569746, password='sdfghjkl'}
+2024-10-23 00:30:42 [INFO] [http-nio-8080-exec-2] c.b.p.s.i.LoginService - usuarioRegistrado --> Usuario{id=5, name='tunombrcvbndev', lastName='tuApelllido', dni=14569746, email='cassegmail.com', password='sdfghjkl'}
+2024-10-23 00:30:42 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:30:42 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [UsuarioDtoOut{id=5, name='tunombrcvbndev', lastName='tuApelllido', dni='14569746', email='cassegmail (truncated)...]
+2024-10-23 00:30:42 [DEBUG] [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet - Completed 201 CREATED
+2024-10-23 00:30:45 [DEBUG] [http-nio-8080-exec-3] o.s.w.s.DispatcherServlet - POST "/users/register", parameters={}
+2024-10-23 00:30:45 [DEBUG] [http-nio-8080-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#registraUsuario(UsuarioDtoInput)
+2024-10-23 00:30:45 [DEBUG] [http-nio-8080-exec-3] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [UsuarioDtoInput{name='tunombrcvbndev', lastName='tuApelllido', email='cassegmail.com', dni=14569746, (truncated)...]
+2024-10-23 00:30:45 [INFO] [http-nio-8080-exec-3] c.b.p.s.i.LoginService - usuario input --> UsuarioDtoInput{name='tunombrcvbndev', lastName='tuApelllido', email='cassegmail.com', dni=14569746, password='sdfghjkl'}
+2024-10-23 00:30:45 [DEBUG] [http-nio-8080-exec-3] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.backend.proyectointegradorc1g6.exception.GlobalExceptionHandler#manejarDniDuplicadoException(DniDuplicadoException)
+2024-10-23 00:30:45 [DEBUG] [http-nio-8080-exec-3] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:30:45 [DEBUG] [http-nio-8080-exec-3] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{mensaje=Recurso no registrado: El DNI 14569746 que intenta registrar ya existe en el sistema}]
+2024-10-23 00:30:45 [WARN] [http-nio-8080-exec-3] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.backend.proyectointegradorc1g6.exception.DniDuplicadoException: El DNI 14569746 que intenta registrar ya existe en el sistema]
+2024-10-23 00:30:45 [DEBUG] [http-nio-8080-exec-3] o.s.w.s.DispatcherServlet - Completed 409 CONFLICT
+2024-10-23 00:30:55 [DEBUG] [http-nio-8080-exec-4] o.s.w.s.DispatcherServlet - GET "/users/list", parameters={}
+2024-10-23 00:30:55 [DEBUG] [http-nio-8080-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#listarUsuarios()
+2024-10-23 00:30:55 [INFO] [http-nio-8080-exec-4] c.b.p.s.i.LoginService - usuarioDtoOuts --> [UsuarioDtoOut{id=5, name='tunombrcvbndev', lastName='tuApelllido', dni='14569746', email='cassegmail.com'}]
+2024-10-23 00:30:55 [DEBUG] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:30:55 [DEBUG] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[UsuarioDtoOut{id=5, name='tunombrcvbndev', lastName='tuApelllido', dni='14569746', email='cassegmai (truncated)...]
+2024-10-23 00:30:55 [DEBUG] [http-nio-8080-exec-4] o.s.w.s.DispatcherServlet - Completed 200 OK
+2024-10-23 00:31:01 [DEBUG] [http-nio-8080-exec-5] o.s.w.s.DispatcherServlet - DELETE "/users/delete/5", parameters={}
+2024-10-23 00:31:01 [DEBUG] [http-nio-8080-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#eliminarUsuario(Long)
+2024-10-23 00:31:01 [INFO] [http-nio-8080-exec-5] c.b.p.s.i.LoginService - inputId --> 5
+2024-10-23 00:31:01 [INFO] [http-nio-8080-exec-5] c.b.p.s.i.LoginService - usuarioBuscado --> Usuario{id=5, name='tunombrcvbndev', lastName='tuApelllido', dni=14569746, email='cassegmail.com', password='sdfghjkl'}
+2024-10-23 00:31:01 [INFO] [http-nio-8080-exec-5] c.b.p.s.i.LoginService - usuarioEncontrado --> UsuarioDtoOut{id=5, name='tunombrcvbndev', lastName='tuApelllido', dni='14569746', email='cassegmail.com'}
+2024-10-23 00:31:01 [INFO] [http-nio-8080-exec-5] c.b.p.s.i.LoginService - Paciente eliminado, con id --> 5
+2024-10-23 00:31:01 [DEBUG] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:31:01 [DEBUG] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["Usuario eliminado correctamente"]
+2024-10-23 00:31:01 [DEBUG] [http-nio-8080-exec-5] o.s.w.s.DispatcherServlet - Completed 204 NO_CONTENT
+2024-10-23 00:31:04 [DEBUG] [http-nio-8080-exec-6] o.s.w.s.DispatcherServlet - GET "/users/list", parameters={}
+2024-10-23 00:31:04 [DEBUG] [http-nio-8080-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.backend.proyectointegradorc1g6.controller.UsuarioController#listarUsuarios()
+2024-10-23 00:31:04 [INFO] [http-nio-8080-exec-6] c.b.p.s.i.LoginService - usuarioDtoOuts --> []
+2024-10-23 00:31:04 [DEBUG] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-10-23 00:31:04 [DEBUG] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[]]
+2024-10-23 00:31:04 [DEBUG] [http-nio-8080-exec-6] o.s.w.s.DispatcherServlet - Completed 200 OK
+2024-10-23 00:35:02 [INFO] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23 00:35:02 [INFO] [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-23 00:35:02 [INFO] [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.

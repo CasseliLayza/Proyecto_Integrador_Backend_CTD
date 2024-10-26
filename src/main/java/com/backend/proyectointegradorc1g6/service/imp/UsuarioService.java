@@ -1,6 +1,7 @@
 package com.backend.proyectointegradorc1g6.service.imp;
+
 import com.backend.proyectointegradorc1g6.dto.input.UsuarioDtoInput;
-import com.backend.proyectointegradorc1g6.dto.ouput.UsuarioDtoOut;
+import com.backend.proyectointegradorc1g6.dto.output.UsuarioDtoOut;
 import com.backend.proyectointegradorc1g6.entity.Usuario;
 import com.backend.proyectointegradorc1g6.exception.DniDuplicadoException;
 import com.backend.proyectointegradorc1g6.exception.ResourceNotFoundException;
@@ -41,10 +42,11 @@ public class UsuarioService implements IUsuarioService {
 
         Usuario usuarioARegistrar = modelMapper.map(usuarioDtoInput, Usuario.class);
         Usuario usuarioRegistrado = usuarioRepository.save(usuarioARegistrar);
-
         LOGGER.info("usuarioRegistrado --> {}", usuarioRegistrado.toString());
 
         UsuarioDtoOut usuarioDtoOut = modelMapper.map(usuarioRegistrado, UsuarioDtoOut.class);
+        LOGGER.info("usuarioDtoOut --> {}", usuarioDtoOut.toString());
+
         return usuarioDtoOut;
 
 
@@ -95,7 +97,7 @@ public class UsuarioService implements IUsuarioService {
         } else {
             LOGGER.info("usuarioAActualizar, no existe verificar --> {}", id);
             //Custom exception
-            throw new ResourceNotFoundException("No existe registro de paciente a actualizar con id: " + id);
+            throw new ResourceNotFoundException("No existe registro de usuario a actualizar con id: " + id);
         }
 
         return usuarioDtoOut;
@@ -105,11 +107,11 @@ public class UsuarioService implements IUsuarioService {
     public void eliminarUsuario(Long id) throws ResourceNotFoundException {
         if (buscarUsuario(id) != null) {
             usuarioRepository.deleteById(id);
-            LOGGER.info("Paciente eliminado, con id --> {}", id);
+            LOGGER.info("Usuario eliminado, con id --> {}", id);
         } else {
-            LOGGER.info("No existe registro de paciente con id: " + id);
+            LOGGER.info("No existe registro de usuario con id: " + id);
             //Custom exception
-            throw new ResourceNotFoundException("No existe registro de paciente con id: " + id);
+            throw new ResourceNotFoundException("No existe registro de usuario con id: " + id);
 
         }
     }
@@ -119,8 +121,5 @@ public class UsuarioService implements IUsuarioService {
         usuarioRepository.deleteAll();
     }
 
-/*    private void configureMapping() {
-        modelMapper.typeMap(UserDtoInput.class, Usuario.class)
-                .addMapping(mapper -> mapper.map())
-    }*/
+
 }

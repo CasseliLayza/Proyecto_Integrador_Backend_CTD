@@ -1,7 +1,8 @@
-package com.backend.proyectointegradorc1g6.dto.input;
+package com.backend.proyectointegradorc1g6.dto.output;
 
-public class UsuarioDtoInput {
+public class UsuarioDtoOut {
 
+    private Long id;
     private String nombre;
     private String apellido;
     private int dni;
@@ -16,10 +17,11 @@ public class UsuarioDtoInput {
     private boolean estaActivo;
     private String password;
 
-    public UsuarioDtoInput() {
+    public UsuarioDtoOut() {
     }
 
-    public UsuarioDtoInput(String nombre, String apellido, int dni, int edad, String telefono, String email, String nacionalidad, boolean esAdmin, boolean estaActivo, String password) {
+    public UsuarioDtoOut(Long id, String nombre, String apellido, int dni, int edad, String telefono, String email, String nacionalidad, boolean esAdmin, boolean estaActivo, String password) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -30,6 +32,14 @@ public class UsuarioDtoInput {
         this.esAdmin = esAdmin;
         this.estaActivo = estaActivo;
         this.password = password;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -114,8 +124,9 @@ public class UsuarioDtoInput {
 
     @Override
     public String toString() {
-        return "UsuarioDtoInput{" +
-                "nombre='" + nombre + '\'' +
+        return "UsuarioDtoOut{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", dni=" + dni +
                 ", edad=" + edad +
@@ -128,4 +139,5 @@ public class UsuarioDtoInput {
                 '}';
     }
 }
+
 

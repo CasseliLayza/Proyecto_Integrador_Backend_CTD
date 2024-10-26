@@ -1,7 +1,7 @@
 package com.backend.proyectointegradorc1g6.controller;
 
 import com.backend.proyectointegradorc1g6.dto.input.UsuarioDtoInput;
-import com.backend.proyectointegradorc1g6.dto.ouput.UsuarioDtoOut;
+import com.backend.proyectointegradorc1g6.dto.output.UsuarioDtoOut;
 import com.backend.proyectointegradorc1g6.exception.DniDuplicadoException;
 import com.backend.proyectointegradorc1g6.exception.ResourceNotFoundException;
 import com.backend.proyectointegradorc1g6.service.IUsuarioService;
@@ -29,7 +29,7 @@ public class UsuarioController {
         return new ResponseEntity<>(usuarioService.listarUsuarios(), HttpStatus.OK);
     }
 
-    @GetMapping("/search/{id}")
+    @GetMapping("/find/{id}")
     public ResponseEntity<UsuarioDtoOut> buscarUsuario(@PathVariable Long id) {
         return new ResponseEntity<>(usuarioService.buscarUsuario(id), HttpStatus.OK);
     }
@@ -46,9 +46,9 @@ public class UsuarioController {
     }
 
     @PostMapping("delete/users/all")
-    public  ResponseEntity<?> eliminarAllUsuarios(){
+    public ResponseEntity<?> eliminarAllUsuarios() {
         usuarioService.eliminarAllUsuarios();
-        return  new ResponseEntity<>("Todos los usuarios fueron eliminados correctamente",HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>("Todos los usuarios fueron eliminados correctamente", HttpStatus.NO_CONTENT);
     }
 
 }

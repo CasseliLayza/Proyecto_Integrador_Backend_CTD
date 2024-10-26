@@ -1,7 +1,7 @@
 package com.backend.proyectointegradorc1g6.service;
 
 import com.backend.proyectointegradorc1g6.dto.input.UsuarioDtoInput;
-import com.backend.proyectointegradorc1g6.dto.ouput.UsuarioDtoOut;
+import com.backend.proyectointegradorc1g6.dto.output.UsuarioDtoOut;
 import com.backend.proyectointegradorc1g6.exception.DniDuplicadoException;
 import com.backend.proyectointegradorc1g6.exception.ResourceNotFoundException;
 

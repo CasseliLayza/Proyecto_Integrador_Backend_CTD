@@ -1,6 +1,7 @@
 package com.backend.proyectointegradorc1g6.exception;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -73,5 +74,31 @@ public class GlobalExceptionHandler {
         return mensaje;
     }
 
+    @ExceptionHandler({IllegalArgumentException.class})
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public Map<String, String> manejarIllegalArgumentException(IllegalArgumentException illegalArgumentException) {
+        Map<String, String> mensaje = new HashMap<>();
+        mensaje.put("mensaje", "Recurso no registrado: " + illegalArgumentException.getMessage());
+
+        return mensaje;
+    }
+
+    @ExceptionHandler({IssuePutObjectException.class})
+    @ResponseStatus(HttpStatus.REQUEST_TIMEOUT)
+    public Map<String, String> manejarIssuePutObjectException(IssuePutObjectException issuePutObjectException) {
+        Map<String, String> mensaje = new HashMap<>();
+        mensaje.put("mensaje", "Recurso no registrado: " + issuePutObjectException.getMessage());
+
+        return mensaje;
+    }
+
+    @ExceptionHandler({JsonProcessingException.class})
+    @ResponseStatus(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
+    public Map<String, String> manejarJsonProcessingException(JsonProcessingException jsonProcessingException) {
+        Map<String, String> mensaje = new HashMap<>();
+        mensaje.put("mensaje", "Recurso no registrado: " + jsonProcessingException.getMessage());
+
+        return mensaje;
+    }
 
 }

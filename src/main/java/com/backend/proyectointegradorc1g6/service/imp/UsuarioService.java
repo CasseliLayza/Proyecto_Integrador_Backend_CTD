@@ -20,9 +20,9 @@ public class UsuarioService implements IUsuarioService {
 
     private final Logger LOGGER = LoggerFactory.getLogger(LoginService.class);
 
-    private final UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
 
-    private final ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
     public UsuarioService(UsuarioRepository usuarioRepository, ModelMapper modelMapper) {
         this.usuarioRepository = usuarioRepository;

@@ -4,6 +4,7 @@ import com.backend.proyectointegradorc1g6.dto.input.AutoDtoInput;
 import com.backend.proyectointegradorc1g6.dto.output.AutoDtoOut;
 import com.backend.proyectointegradorc1g6.exception.MatriculaDuplicadaException;
 import com.backend.proyectointegradorc1g6.exception.ResourceNotFoundException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -20,5 +21,5 @@ public interface IAutoService {
 
     void eliminarAuto(Long id) throws ResourceNotFoundException;
 
-    AutoDtoOut registrarAuto(AutoDtoInput autoDtoInput, List<MultipartFile> imagenes, int indiceImagenPrincipal) throws MatriculaDuplicadaException;
+    AutoDtoOut registrarAuto(String autoDtoInput, List<MultipartFile> imagenes, int indiceImagenPrincipal) throws MatriculaDuplicadaException, JsonProcessingException;
 }

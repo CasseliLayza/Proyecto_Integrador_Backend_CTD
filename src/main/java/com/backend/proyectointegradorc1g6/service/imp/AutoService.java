@@ -4,15 +4,18 @@ import com.backend.proyectointegradorc1g6.dto.input.AutoDtoInput;
 import com.backend.proyectointegradorc1g6.dto.output.AutoDtoOut;
 import com.backend.proyectointegradorc1g6.entity.Auto;
 import com.backend.proyectointegradorc1g6.entity.Imagen;
+import com.backend.proyectointegradorc1g6.exception.IssuePutObjectException;
 import com.backend.proyectointegradorc1g6.exception.MatriculaDuplicadaException;
 import com.backend.proyectointegradorc1g6.exception.ResourceNotFoundException;
 import com.backend.proyectointegradorc1g6.repository.AutosRepository;
 import com.backend.proyectointegradorc1g6.service.IAutoService;
+import com.backend.proyectointegradorc1g6.service.IS3Service;
 import com.backend.proyectointegradorc1g6.utils.JsonPrinter;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,12 +30,14 @@ public class AutoService implements IAutoService {
 
     private AutosRepository autosRepository;
     private ModelMapper modelMapper;
-    @Autowired
-    private S3Service s3Service;
+    private IS3Service s3Service;
+    private ObjectMapper objectMapper;
 
-    public AutoService(AutosRepository autosRepository, ModelMapper modelMapper) {
+    public AutoService(AutosRepository autosRepository, ModelMapper modelMapper, IS3Service s3Service, ObjectMapper objectMapper) {
         this.autosRepository = autosRepository;
         this.modelMapper = modelMapper;
+        this.s3Service = s3Service;
+        this.objectMapper = objectMapper;
         configureMapping();
     }
 
@@ -43,9 +48,9 @@ public class AutoService implements IAutoService {
 
         String matricula = autoDtoInput.getMatricula();
         if (autosRepository.findByMatricula(matricula) != null)
-          throw new MatriculaDuplicadaException("La " + matricula + " que intenta registrar ya existe en el sistema");
+            throw new MatriculaDuplicadaException("La " + matricula + " que intenta registrar ya existe en el sistema");
         //if (autosRepository.existsByMatricula(matricula))
-          //  throw new MatriculaDuplicadaException("La " + matricula + " que intenta registrar ya existe en el sistema");
+        //  throw new MatriculaDuplicadaException("La " + matricula + " que intenta registrar ya existe en el sistema");
 
         Auto autoARegistrar = modelMapper.map(autoDtoInput, Auto.class);
 
@@ -135,8 +140,9 @@ public class AutoService implements IAutoService {
 
     }
 
-    public AutoDtoOut registrarAuto(AutoDtoInput autoDtoInput, List<MultipartFile> imagenes, int indiceImagenPrincipal) throws MatriculaDuplicadaException {
+    public AutoDtoOut registrarAuto(String autoDtoInputJson, List<MultipartFile> imagenes, int indiceImagenPrincipal) throws MatriculaDuplicadaException, JsonProcessingException {
 
+        AutoDtoInput autoDtoInput = objectMapper.readValue(autoDtoInputJson, AutoDtoInput.class);
         LOGGER.info("autoDtoInput --> {}", JsonPrinter.toString(autoDtoInput));
 
         String matricula = autoDtoInput.getMatricula();
@@ -158,14 +164,13 @@ public class AutoService implements IAutoService {
                         imagen.setAuto(autoARegistrar);
 
                         if (i == indiceImagenPrincipal) {
-                            //autoARegistrar.setImagenPrincipal(imagen);
                             imagen.setEsPrincipal(true);
                         }
 
                         return imagen;
                     } catch (Exception e) {
                         LOGGER.error("Error al subir imagen a S3 --> {}", e.getMessage());
-                        throw new RuntimeException("Error al subir imagen", e);
+                        throw new IssuePutObjectException("Error al subir imagen");
                     }
                 })
                 .collect(Collectors.toList());

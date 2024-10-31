@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -22,7 +21,7 @@ public class Auto {
     private Long id;
     @Column(length = 50)
     private String matricula;
-    @Column(length = 50)
+    @Column(length = 200)
     private String descripcion;
     @Column(length = 50)
     private String marca;
@@ -37,14 +36,21 @@ public class Auto {
     @Column(name = "precio_dia")
     private Double precioDia;
     @Column(name = "fecha_fabricacion")
-    private LocalDate fechaFabricacion;
+    private String fechaFabricacion;
     @Column(name = "esta_activo")
     private boolean estaActivo;
+    @ManyToMany
+    @JoinTable(
+            name = "AUTO_CATEGORIA",
+            joinColumns = @JoinColumn(name = "auto_id"),
+            inverseJoinColumns = @JoinColumn(name = "categoria_id")
+    )
+    private List<Categoria> categorias;
     @OneToMany(mappedBy = "auto", cascade = CascadeType.ALL, orphanRemoval = true)
     //@JsonManagedReference
     private List<Imagen> imagenes;
 
-    public Auto(String matricula, String descripcion, String marca, String modelo, String potenciaHP, String velocidad, String aceleracion, Double precioDia, LocalDate fechaFabricacion, boolean estaActivo, List<Imagen> imagenes) {
+    public Auto(String matricula, String descripcion, String marca, String modelo, String potenciaHP, String velocidad, String aceleracion, Double precioDia, String fechaFabricacion, boolean estaActivo, List<Categoria> categorias, List<Imagen> imagenes) {
         this.matricula = matricula;
         this.descripcion = descripcion;
         this.marca = marca;
@@ -55,6 +61,7 @@ public class Auto {
         this.precioDia = precioDia;
         this.fechaFabricacion = fechaFabricacion;
         this.estaActivo = estaActivo;
+        this.categorias = categorias;
         this.imagenes = imagenes;
     }
 
@@ -72,6 +79,7 @@ public class Auto {
                 ", precioDia=" + precioDia +
                 ", fechaFabricacion='" + fechaFabricacion + '\'' +
                 ", estaActivo=" + estaActivo +
+                ", categorias=" + categorias +
                 ", imagenes=" + imagenes +
                 '}';
     }

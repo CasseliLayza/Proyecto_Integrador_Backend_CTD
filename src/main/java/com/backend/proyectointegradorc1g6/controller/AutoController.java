@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,16 +26,16 @@ public class AutoController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<AutoDtoOut> registrarAuto(@RequestBody AutoDtoInput autoDtoInput) throws MatriculaDuplicadaException {
+    public ResponseEntity<AutoDtoOut> registrarAuto(@RequestBody @Valid AutoDtoInput autoDtoInput) throws MatriculaDuplicadaException {
         return new ResponseEntity<>(autoService.registrarAuto(autoDtoInput), HttpStatus.CREATED);
     }
 
     @PostMapping(value = "/registers3", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<AutoDtoOut> registrarAuto(
+    public ResponseEntity<AutoDtoOut> registrarAutoS3(
             @RequestPart("auto") String autoDtoInputJson,
             @RequestPart("imagenes") List<MultipartFile> imagenes,
             @RequestParam("indiceImagenPrincipal") int indiceImagenPrincipal) throws MatriculaDuplicadaException, JsonProcessingException {
-        return new ResponseEntity<>(autoService.registrarAuto(autoDtoInputJson, imagenes, indiceImagenPrincipal), HttpStatus.CREATED);
+        return new ResponseEntity<>(autoService.registrarAutoS3(autoDtoInputJson, imagenes, indiceImagenPrincipal), HttpStatus.CREATED);
     }
 
     @GetMapping("/list")
@@ -48,8 +49,17 @@ public class AutoController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<AutoDtoOut> actualizarAuto(@RequestBody AutoDtoInput autoDtoInput, @PathVariable Long id) throws ResourceNotFoundException {
+    public ResponseEntity<AutoDtoOut> actualizarAuto(@RequestBody @Valid AutoDtoInput autoDtoInput, @PathVariable Long id) throws ResourceNotFoundException {
         return new ResponseEntity<>(autoService.actualizarAuto(autoDtoInput, id), HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/updates3/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<AutoDtoOut> actualizarAutoS3(
+            @RequestPart("auto") String autoDtoInputJson,
+            @RequestPart("imagenes") List<MultipartFile> imagenes,
+            @RequestParam("indiceImagenPrincipal") int indiceImagenPrincipal,
+            @PathVariable Long id) throws MatriculaDuplicadaException, JsonProcessingException, ResourceNotFoundException {
+        return new ResponseEntity<>(autoService.actualizarAutoS3(autoDtoInputJson, imagenes, indiceImagenPrincipal, id), HttpStatus.CREATED);
     }
 
     @DeleteMapping("delete/{id}")

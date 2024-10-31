@@ -14,7 +14,7 @@ public class ProyectoIntegradorBackendCtdC1G6Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoIntegradorBackendCtdC1G6Application.class, args);
-		LOGGER.info("Proyecto Medic Dev  ¡¡¡¡¡¡¡¡¡¡INITIALIZED!!!!!!!!!!!... port(s): 8080");
+		LOGGER.info("Proyecto Dev  ¡¡¡¡¡¡¡¡¡¡INITIALIZED!!!!!!!!!!!... port(s): 8080");
 	}
 
 	@Bean

@@ -1,6 +1,5 @@
 package com.backend.proyectointegradorc1g6.dto.output;
 
-import com.backend.proyectointegradorc1g6.entity.Categoria;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +23,8 @@ public class AutoDtoOut {
     private Double precioDia;
     private String fechaFabricacion;
     private boolean estaActivo;
-    private List<Categoria> categorias;
+    private List<CategoriaDtoOut> categorias;
+    private List<CaracteristicaDtoOut> caracteristicas;
     private List<ImagenDtoOut> imagenes;
 
     @Override
@@ -42,6 +42,7 @@ public class AutoDtoOut {
                 ", fechaFabricacion='" + fechaFabricacion + '\'' +
                 ", estaActivo=" + estaActivo +
                 ", categorias=" + categorias +
+                ", caracteristicas=" + caracteristicas +
                 ", imagenes=" + imagenes +
                 '}';
     }

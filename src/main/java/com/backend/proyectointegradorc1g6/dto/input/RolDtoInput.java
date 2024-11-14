@@ -5,14 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ImagenDtoInput {
-    @NotBlank(message = "The value url should not be empty")
-    private String url;
-    private boolean esPrincipal;
+public class RolDtoInput {
+    private String nombre;
+
+    @Override
+    public String toString() {
+        return "RolDtoInput{" +
+                "nombre='" + nombre + '\'' +
+                '}';
+    }
 }

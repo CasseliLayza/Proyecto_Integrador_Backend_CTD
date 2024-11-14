@@ -11,16 +11,16 @@ import java.util.List;
 
 public interface IAutoService {
 
-    AutoDtoOut registrarAutoS3(String autoDtoInput, List<MultipartFile> imagenes, int indiceImagenPrincipal) throws MatriculaDuplicadaException, JsonProcessingException;
     AutoDtoOut registrarAuto(AutoDtoInput autoDtoInput) throws MatriculaDuplicadaException;
 
     List<AutoDtoOut> listarAutos();
 
     AutoDtoOut buscarAuto(Long id);
 
-    AutoDtoOut actualizarAutoS3(String autoDtoInput, List<MultipartFile> imagenes, int indiceImagenPrincipal, Long id) throws MatriculaDuplicadaException, JsonProcessingException, ResourceNotFoundException;
     AutoDtoOut actualizarAuto(AutoDtoInput autoDtoInput, Long id) throws ResourceNotFoundException;
 
     void eliminarAuto(Long id) throws ResourceNotFoundException;
 
+    AutoDtoOut registrarAutoS3(String autoDtoInput, List<MultipartFile> imagenes, int indiceImagenPrincipal) throws MatriculaDuplicadaException, JsonProcessingException;
+    AutoDtoOut actualizarAutoS3(String autoDtoInput, List<MultipartFile> imagenes, int indiceImagenPrincipal, Long id) throws MatriculaDuplicadaException, JsonProcessingException, ResourceNotFoundException;
 }

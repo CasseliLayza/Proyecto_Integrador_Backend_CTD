@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/autos")
-@CrossOrigin
+@CrossOrigin(originPatterns = "*")
 public class AutoController {
 
     @Autowired

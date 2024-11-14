@@ -2,17 +2,22 @@ package com.backend.proyectointegradorc1g6.service.imp;
 
 import com.backend.proyectointegradorc1g6.dto.input.UsuarioDtoInput;
 import com.backend.proyectointegradorc1g6.dto.output.UsuarioDtoOut;
+import com.backend.proyectointegradorc1g6.entity.Rol;
 import com.backend.proyectointegradorc1g6.entity.Usuario;
 import com.backend.proyectointegradorc1g6.exception.DniDuplicadoException;
 import com.backend.proyectointegradorc1g6.exception.ResourceNotFoundException;
+import com.backend.proyectointegradorc1g6.repository.RolRepository;
 import com.backend.proyectointegradorc1g6.repository.UsuarioRepository;
 import com.backend.proyectointegradorc1g6.service.IUsuarioService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,10 +28,15 @@ public class UsuarioService implements IUsuarioService {
     private UsuarioRepository usuarioRepository;
 
     private ModelMapper modelMapper;
+    private RolRepository rolRepository;
+    private PasswordEncoder passwordEncoder;
 
-    public UsuarioService(UsuarioRepository usuarioRepository, ModelMapper modelMapper) {
+    public UsuarioService(UsuarioRepository usuarioRepository, ModelMapper modelMapper, RolRepository rolRepository, PasswordEncoder passwordEncoder) {
         this.usuarioRepository = usuarioRepository;
         this.modelMapper = modelMapper;
+        this.rolRepository = rolRepository;
+        this.passwordEncoder = passwordEncoder;
+        configureMapping();
     }
 
 
@@ -35,12 +45,37 @@ public class UsuarioService implements IUsuarioService {
 
         LOGGER.info("usuario input --> {}", usuarioDtoInput.toString());
         int dni = usuarioDtoInput.getDni();
+        String email = usuarioDtoInput.getEmail();
+        String userName = usuarioDtoInput.getUserName();
         Usuario usuarioBuscado = usuarioRepository.findByDni(dni);
+        Usuario usuarioEncontradoByEmail = usuarioRepository.findByEmail(email);
+        Optional<Usuario> usuarioEncontradoByUserName = usuarioRepository.findByUserName(userName);
         if (usuarioBuscado != null) {
             throw new DniDuplicadoException("El DNI " + dni + " que intenta registrar ya existe en el sistema");
         }
 
+        if (usuarioEncontradoByEmail != null) {
+            throw new DniDuplicadoException("El email " + email + " que intenta registrar ya existe en el sistema");
+        }
+
+        if (usuarioEncontradoByUserName.isPresent()) {
+            throw new DniDuplicadoException("El userName " + userName + " que intenta registrar ya existe en el sistema");
+        }
+
         Usuario usuarioARegistrar = modelMapper.map(usuarioDtoInput, Usuario.class);
+        ///////////////////////////REGISTER AND ROLES///////////////////////////
+        Optional<Rol> rolUser = rolRepository.findByNombre("ROLE_USER");
+        List<Rol> roles = new ArrayList<>();
+        rolUser.ifPresent(roles::add);
+        if (usuarioARegistrar.isEsAdmin()) {
+            Optional<Rol> rolAdmin = rolRepository.findByNombre("ROLE_ADMIN");
+            rolAdmin.ifPresent(roles::add);
+        }
+        usuarioARegistrar.setRoles(roles);
+        usuarioARegistrar.setPassword(passwordEncoder.encode(usuarioARegistrar.getPassword()));
+
+        ///////////////////////////REGISTER AND ROLES///////////////////////////
+
         Usuario usuarioRegistrado = usuarioRepository.save(usuarioARegistrar);
         LOGGER.info("usuarioRegistrado --> {}", usuarioRegistrado.toString());
 
@@ -48,7 +83,6 @@ public class UsuarioService implements IUsuarioService {
         LOGGER.info("usuarioDtoOut --> {}", usuarioDtoOut.toString());
 
         return usuarioDtoOut;
-
 
     }
 
@@ -82,13 +116,50 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
+    public UsuarioDtoOut buscarUsuarioByUserName(String userName) throws ResourceNotFoundException {
+        LOGGER.info("userName --> {}", userName);
+
+        Usuario usuarioBuscado = usuarioRepository.findByUserName(userName).orElse(null);
+        LOGGER.info("usuarioBuscado --> {}", usuarioBuscado);
+        UsuarioDtoOut usuarioDtoOut = null;
+        if (usuarioBuscado != null) {
+            usuarioDtoOut = modelMapper.map(usuarioBuscado, UsuarioDtoOut.class);
+            LOGGER.info("usuarioEncontrado --> {}", usuarioDtoOut);
+        } else {
+            LOGGER.info("usuarioBuscado, no existe verificar --> {}", userName);
+            throw new ResourceNotFoundException("No existe registro de usuario con userName: " + userName);
+        }
+
+        return usuarioDtoOut;
+    }
+
+    @Override
     public UsuarioDtoOut actualizarUsuario(UsuarioDtoInput usuarioDtoInput, Long id) throws ResourceNotFoundException {
         LOGGER.info("usuarioDtoInput --> {}", usuarioDtoInput);
         LOGGER.info("id input --> {}", id);
         Usuario usuarioEncontrado = usuarioRepository.findById(id).orElse(null);
         UsuarioDtoOut usuarioDtoOut = null;
         if (usuarioEncontrado != null) {
+            verificarDuplicidadUsuario(usuarioDtoInput, usuarioEncontrado);
             Usuario usuarioAAtualizar = modelMapper.map(usuarioDtoInput, Usuario.class);
+
+            ///////////////////////////REGISTER AND ROLES///////////////////////////
+            Optional<Rol> rolUser = rolRepository.findByNombre("ROLE_USER");
+            List<Rol> roles = new ArrayList<>();
+            rolUser.ifPresent(roles::add);
+            if (usuarioAAtualizar.isEsAdmin()) {
+                Optional<Rol> rolAdmin = rolRepository.findByNombre("ROLE_ADMIN");
+                rolAdmin.ifPresent(roles::add);
+            }
+            usuarioAAtualizar.setRoles(roles);
+            ///////////////////////////Validation null///////////////////////////
+            if (usuarioAAtualizar.getPassword() != null && !usuarioAAtualizar.getPassword().isEmpty()) {
+                usuarioAAtualizar.setPassword(passwordEncoder.encode(usuarioAAtualizar.getPassword()));
+            } else {
+                usuarioAAtualizar.setPassword(usuarioEncontrado.getPassword());
+            }
+
+            ///////////////////////////REGISTER AND ROLES///////////////////////////
             usuarioAAtualizar.setId(usuarioEncontrado.getId());
             Usuario usuarioActualizado = usuarioRepository.save(usuarioAAtualizar);
             LOGGER.info("usuarioActualizado --> {}", usuarioActualizado);
@@ -121,5 +192,22 @@ public class UsuarioService implements IUsuarioService {
         usuarioRepository.deleteAll();
     }
 
+    private void verificarDuplicidadUsuario(UsuarioDtoInput usuarioDtoInput, Usuario usuarioEncontrado) {
+        Usuario usuarioDuplicado = usuarioRepository.findByDni(usuarioDtoInput.getDni());
+        if (usuarioDuplicado != null) {
+
+            if (!usuarioDuplicado.getId().equals(usuarioEncontrado.getId())) {
+                throw new RuntimeException(new DniDuplicadoException(
+                        "EL DNI " + usuarioDtoInput.getDni() + " que intenta actualizar ya existe en otro usuario del sistema"
+                ));
+            }
+        }
+    }
+
+    private void configureMapping() {
+        //modelMapper.typeMap(AutoDtoInput.class, Auto.class)
+        modelMapper.typeMap(Usuario.class, UsuarioDtoOut.class)
+                .addMappings(mapper -> mapper.map(Usuario::getRoles, UsuarioDtoOut::setRoles));
+    }
 
 }

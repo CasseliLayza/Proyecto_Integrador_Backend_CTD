@@ -1,116 +1,46 @@
 package com.backend.proyectointegradorc1g6.dto.input;
 
+import com.backend.proyectointegradorc1g6.dto.input.dtoUtils.OnCreate;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UsuarioDtoInput {
 
+    @NotBlank(message = "The value nombre should not be empty")
+    @Size(max = 50, message = "The value nombre should has max 50 characters")
     private String nombre;
+    @NotBlank(message = "The value apellido should not be empty")
+    @Size(max = 50, message = "The value apellido should has max 50 characters")
     private String apellido;
     private int dni;
     private int edad;
     private String telefono;
+    @NotBlank(message = "The value email should not be empty")
+    @Size(max = 50, message = "The value email should has max 50 characters")
     private String email;
 
+    @NotBlank(message = "The value nacionalidad should not be empty")
+    @Size(max = 50, message = "The value nacionalidad should has max 50 characters")
     private String nacionalidad;
 
     private boolean esAdmin;
 
     private boolean estaActivo;
+    @NotBlank(message = "The value userName should not be empty")
+    @Size(max = 25, message = "The value userName should has max 25 characters")
+    private String userName;
+    @NotBlank(message = "The value password should not be empty", groups = OnCreate.class)
+    @Size(max = 100, message = "The value password should has max 100 characters")
     private String password;
-
-    public UsuarioDtoInput() {
-    }
-
-    public UsuarioDtoInput(String nombre, String apellido, int dni, int edad, String telefono, String email, String nacionalidad, boolean esAdmin, boolean estaActivo, String password) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-        this.edad = edad;
-        this.telefono = telefono;
-        this.email = email;
-        this.nacionalidad = nacionalidad;
-        this.esAdmin = esAdmin;
-        this.estaActivo = estaActivo;
-        this.password = password;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public int getDni() {
-        return dni;
-    }
-
-    public void setDni(int dni) {
-        this.dni = dni;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
-
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
-
-    public boolean isEsAdmin() {
-        return esAdmin;
-    }
-
-    public void setEsAdmin(boolean esAdmin) {
-        this.esAdmin = esAdmin;
-    }
-
-    public boolean isEstaActivo() {
-        return estaActivo;
-    }
-
-    public void setEstaActivo(boolean estaActivo) {
-        this.estaActivo = estaActivo;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     @Override
     public String toString() {
@@ -124,6 +54,7 @@ public class UsuarioDtoInput {
                 ", nacionalidad='" + nacionalidad + '\'' +
                 ", esAdmin=" + esAdmin +
                 ", estaActivo=" + estaActivo +
+                ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

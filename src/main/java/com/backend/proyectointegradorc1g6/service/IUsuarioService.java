@@ -13,6 +13,7 @@ public interface IUsuarioService {
     List<UsuarioDtoOut> listarUsuarios();
 
     UsuarioDtoOut buscarUsuario(Long id);
+    UsuarioDtoOut buscarUsuarioByUserName(String userName) throws ResourceNotFoundException;
 
     UsuarioDtoOut actualizarUsuario(UsuarioDtoInput usuarioDtoInput, Long id) throws ResourceNotFoundException;
 

@@ -46,11 +46,19 @@ public class Auto {
             inverseJoinColumns = @JoinColumn(name = "categoria_id")
     )
     private List<Categoria> categorias;
+
+    @ManyToMany
+    @JoinTable(
+            name = "AUTO_CARACTERISTICA",
+            joinColumns = @JoinColumn(name = "auto_id"),
+            inverseJoinColumns = @JoinColumn(name = "caracteristica_id")
+    )
+    private List<Caracteristica> caracteristicas;
     @OneToMany(mappedBy = "auto", cascade = CascadeType.ALL, orphanRemoval = true)
     //@JsonManagedReference
     private List<Imagen> imagenes;
 
-    public Auto(String matricula, String descripcion, String marca, String modelo, String potenciaHP, String velocidad, String aceleracion, Double precioDia, String fechaFabricacion, boolean estaActivo, List<Categoria> categorias, List<Imagen> imagenes) {
+    public Auto(String matricula, String descripcion, String marca, String modelo, String potenciaHP, String velocidad, String aceleracion, Double precioDia, String fechaFabricacion, boolean estaActivo, List<Categoria> categorias, List<Caracteristica> caracteristicas, List<Imagen> imagenes) {
         this.matricula = matricula;
         this.descripcion = descripcion;
         this.marca = marca;
@@ -62,6 +70,7 @@ public class Auto {
         this.fechaFabricacion = fechaFabricacion;
         this.estaActivo = estaActivo;
         this.categorias = categorias;
+        this.caracteristicas = caracteristicas;
         this.imagenes = imagenes;
     }
 
@@ -80,6 +89,7 @@ public class Auto {
                 ", fechaFabricacion='" + fechaFabricacion + '\'' +
                 ", estaActivo=" + estaActivo +
                 ", categorias=" + categorias +
+                ", caracteristicas=" + caracteristicas +
                 ", imagenes=" + imagenes +
                 '}';
     }

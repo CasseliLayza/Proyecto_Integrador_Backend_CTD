@@ -9,19 +9,19 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoriaDtoOut {
+public class CaracteristicaDtoOut {
+
     private Long id;
     private String nombre;
-    private String descripcion;
-    private String iconoCat;
+    private String icono;
+
 
     @Override
     public String toString() {
-        return "CategoriaDtoOut{" +
+        return "CaracteristicaDtoOut{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", iconoCat='" + iconoCat + '\'' +
+                ", icono='" + icono + '\'' +
                 '}';
     }
 }

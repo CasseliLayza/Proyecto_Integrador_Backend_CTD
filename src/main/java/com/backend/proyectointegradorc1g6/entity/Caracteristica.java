@@ -13,29 +13,28 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "CATEGORIAS")
-public class Categoria {
+@Table(name = "CARACTERISTICAS")
+public class Caracteristica {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(length = 50)
     private String nombre;
-    @Column(length = 200)
-    private String descripcion;
     @Column(length = 400)
-    private String iconoCat;
+    private String icono;
 
-    @ManyToMany(mappedBy = "categorias")
+    @ManyToMany(mappedBy = "caracteristicas")
     //private List<Auto> autos = new ArrayList<>();
     private List<Auto> autos;
 
+
     @Override
     public String toString() {
-        return "Categoria{" +
+        return "Caracteristica{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", iconoCat='" + iconoCat + '\'' +
+                ", icono='" + icono + '\'' +
                 '}';
     }
 }

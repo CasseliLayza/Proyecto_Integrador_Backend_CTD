@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -97,6 +98,59 @@ public class GlobalExceptionHandler {
     public Map<String, String> manejarJsonProcessingException(JsonProcessingException jsonProcessingException) {
         Map<String, String> mensaje = new HashMap<>();
         mensaje.put("mensaje", "Recurso no registrado: " + jsonProcessingException.getMessage());
+
+        return mensaje;
+    }
+
+    @ExceptionHandler({CategoriaDuplicadaException.class})
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public Map<String, String> manejarCategoriaDuplicadoException(CategoriaDuplicadaException categoriaDuplicadaException) {
+        Map<String, String> mensaje = new HashMap<>();
+        mensaje.put("mensaje", "Recurso no registrado: " + categoriaDuplicadaException.getMessage());
+
+        return mensaje;
+    }
+
+    @ExceptionHandler({CaracteristicaDuplicadaException.class})
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public Map<String, String> manejarCaracteristicaDuplicadoException(CaracteristicaDuplicadaException caracteristicaDuplicadaException) {
+        Map<String, String> mensaje = new HashMap<>();
+        mensaje.put("mensaje", "Recurso no registrado: " + caracteristicaDuplicadaException.getMessage());
+
+        return mensaje;
+    }
+    @ExceptionHandler({CategoriaEnUsoException.class})
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public Map<String, String> manejarCategoriaEnUsoException(CategoriaEnUsoException categoriaEnUsoException) {
+        Map<String, String> mensaje = new HashMap<>();
+        mensaje.put("mensaje", "Recurso no eliminado: " + categoriaEnUsoException.getMessage());
+
+        return mensaje;
+    }
+
+    @ExceptionHandler({CaracteristicaEnUsoException.class})
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public Map<String, String> manejarCaracteristicaEnUsoException(CaracteristicaEnUsoException caracteristicaEnUsoException) {
+        Map<String, String> mensaje = new HashMap<>();
+        mensaje.put("mensaje", "Recurso no eliminado: " + caracteristicaEnUsoException.getMessage());
+
+        return mensaje;
+    }
+
+    @ExceptionHandler({SQLIntegrityConstraintViolationException.class})
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public Map<String, String> manejarDataIntegrityViolationException(SQLIntegrityConstraintViolationException violationException) {
+        Map<String, String> mensaje = new HashMap<>();
+        mensaje.put("mensaje", "Recurso no registrado: " + violationException.getMessage());
+
+        return mensaje;
+    }
+
+    @ExceptionHandler({FailedSendMailMessageException.class})
+    @ResponseStatus(HttpStatus.REQUEST_TIMEOUT)
+    public Map<String, String> manejarFailedSendMailMessageException(FailedSendMailMessageException failedSendMailMessageException ) {
+        Map<String, String> mensaje = new HashMap<>();
+        mensaje.put("mensaje", "Recurso no enviado: " + failedSendMailMessageException .getMessage());
 
         return mensaje;
     }

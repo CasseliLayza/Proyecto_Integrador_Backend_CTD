@@ -49,7 +49,7 @@ public class EmailService implements IEmailService {
     }
 
     @Override
-    public Map<String, String> sendEmailCustomer(String[] toUser, String subject, String message, String name, String logo) {
+    public Map<String, String> sendEmailCustomer(String[] toUser, String subject, String message, String name, String logo) throws FailedSendMailMessageException {
 
         String messagaFormat = MessageTemplate.TEMPLATE_MESSAGE;
 
@@ -75,7 +75,7 @@ public class EmailService implements IEmailService {
             return response;
 
         } catch (MessagingException e) {
-            throw new RuntimeException(e);
+            throw new FailedSendMailMessageException(e.getMessage());
         }
     }
 
@@ -90,7 +90,7 @@ public class EmailService implements IEmailService {
 
             File file = path.toFile();
 
-            settinMailSender(emailFileDto.getToUser(), emailFileDto.getSubject(), emailFileDto.getMessage(), file);
+            settingMailSender(emailFileDto.getToUser(), emailFileDto.getSubject(), emailFileDto.getMessage(), file);
 
             Map<String, String> response = new HashMap<>();
             response.put("estado", "enviado");
@@ -105,7 +105,7 @@ public class EmailService implements IEmailService {
 
     }
 
-    private void settinMailSender(String[] toUser, String subject, String message, File file) throws FailedSendMailMessageException {
+    private void settingMailSender(String[] toUser, String subject, String message, File file) throws FailedSendMailMessageException {
         try {
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true, StandardCharsets.UTF_8.name());

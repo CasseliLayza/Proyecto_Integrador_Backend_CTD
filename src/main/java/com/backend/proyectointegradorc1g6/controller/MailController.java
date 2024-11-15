@@ -25,7 +25,7 @@ public class MailController {
     }
 
     @PostMapping("/send/message/customer")
-    public ResponseEntity<Map<String, String>> recieveRequestCustomerEmail(@RequestBody EmailDto emailDto) {
+    public ResponseEntity<Map<String, String>> recieveRequestCustomerEmail(@RequestBody EmailDto emailDto) throws FailedSendMailMessageException {
         return new ResponseEntity<>(emailService.sendEmailCustomer(emailDto.getToUser(), emailDto.getSubject(), emailDto.getMessage(),emailDto.getName(),emailDto.getLogo()), HttpStatus.ACCEPTED);
 
     }

@@ -249,7 +249,7 @@ Para ejecutar el proyecto:
     ```markdown
     Para más información o preguntas relacionadas con este proyecto, puedes contactarme en:  
 
-    📧 **Correo:** [Caseli L](casseli.layza@gmail.com)
+    📧 **Correo:** [Caseli L](mailto:casseli.layza@gmail.com)
     
     ```
 
@@ -263,10 +263,10 @@ Para ejecutar el proyecto:
     ```
 
 ## Derechos Reservados
-- Agrega una nota sobre los derechos reservados si es aplicable.
+- Sobre los derechos reservados si es aplicable.
 
     ```markdown
     © 2024 Casseli L CodeCloudNet. Todos los derechos reservados.  
-    Este proyecto está protegido por las leyes de derechos de autor y no puede ser  reproducido, distribuido ni utilizado sin autorización previa.
+    Este proyecto está protegido por las leyes de derechos de autor y no puede ser reproducido, distribuido ni utilizado sin autorización previa.
     
     ```

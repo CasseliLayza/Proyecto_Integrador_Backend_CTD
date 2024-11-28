@@ -23,6 +23,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -49,6 +51,9 @@ public class AutoService implements IAutoService {
         configureMapping();
     }
 
+    public static AutosRepository getAutosRepository() {
+        return autosRepository;
+    }
 
     @Override
     public AutoDtoOut registrarAuto(AutoDtoInput autoDtoInput) throws MatriculaDuplicadaException {
@@ -115,6 +120,51 @@ public class AutoService implements IAutoService {
         }
 
         return autoDtoOut;
+    }
+
+    @Override
+    public List<AutoDtoOut> buscarAutosByMarca(String marca) throws ResourceNotFoundException {
+
+        LOGGER.info("nombre --> {}", marca);
+
+        List<Auto> autosBuscados = autosRepository.findAllByMarca(marca);
+        LOGGER.info("Autos buscados --> {}", autosBuscados);
+
+        List<AutoDtoOut> autosDtoOut = new ArrayList<>();
+        if (autosBuscados.size() != 0) {
+            autosDtoOut = autosBuscados.stream().
+                    map(auto -> modelMapper.map(auto, AutoDtoOut.class)).
+                    collect(Collectors.toList());
+
+            LOGGER.info("Autos encontrados --> {}", JsonPrinter.toString(autosDtoOut));
+        } else {
+            LOGGER.info("Autos no encontrados, verificar el nombre --> {} ", marca);
+            throw new ResourceNotFoundException("Autos no encontrados, verificar el nombre");
+        }
+
+        return autosDtoOut;
+
+/*        List<AutoDtoOut> autoDtoOuts = autosRepository.findAllByMarca(marca).stream()
+                .map(auto -> modelMapper.map(auto, AutoDtoOut.class)).collect(Collectors.toList());
+        LOGGER.info("Listado de todos los autos por marca --> {}", JsonPrinter.toString(autoDtoOuts));
+        return autoDtoOuts;*/
+
+
+    }
+
+    @Override
+    public List<AutoDtoOut> buscarAutosDisponibles(LocalDate fechaInicio, LocalDate fechaFin) {
+
+        if (fechaInicio.isAfter(fechaFin)) {
+            throw new IllegalArgumentException("La fecha de inicio no puede ser posterior a la fecha de fin.");
+        }
+        List<AutoDtoOut> autosDtoOuts = autosRepository.findAutosDisponibles(fechaInicio, fechaFin).stream()
+                .map(auto -> modelMapper.map(auto, AutoDtoOut.class))
+                .collect(Collectors.toList());
+        LOGGER.info("Listado de todos los autos disponibles --> {}", JsonPrinter.toString(autosDtoOuts));
+
+        return autosDtoOuts;
+
     }
 
     @Override

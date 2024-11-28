@@ -6,9 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
 @Getter
@@ -23,14 +21,8 @@ public class UsuarioDtoInput {
     @NotBlank(message = "The value apellido should not be empty")
     @Size(max = 50, message = "The value apellido should has max 50 characters")
     private String apellido;
-    @Positive(message = "The value dni should not be null or less than zero")
-    @Digits(integer = 17, fraction = 0, message = "The value dni should has max 17 digits")
     private int dni;
-    @Positive(message = "The value edad should not be null or less than zero")
-    @Digits(integer = 3, fraction = 0, message = "The value edad should has max 3 digits")
     private int edad;
-    @NotBlank(message = "The value telefono should not be empty")
-    @Size(max = 25, message = "The value telefono should has max 25 characters")
     private String telefono;
     @NotBlank(message = "The value email should not be empty")
     @Size(max = 50, message = "The value email should has max 50 characters")

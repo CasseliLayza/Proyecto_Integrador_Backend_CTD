@@ -6,6 +6,7 @@ import com.backend.proyectointegradorc1g6.service.IEmailService;
 import com.backend.proyectointegradorc1g6.service.senderutilities.MessageTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -49,7 +50,7 @@ public class EmailService implements IEmailService {
     }
 
     @Override
-    public Map<String, String> sendEmailCustomer(String[] toUser, String subject, String message, String name, String logo) throws FailedSendMailMessageException {
+    public Map<String, String> sendEmailCustomer(String[] toUser, String subject, String message, String name, String logo) {
 
         String messagaFormat = MessageTemplate.TEMPLATE_MESSAGE;
 
@@ -75,7 +76,7 @@ public class EmailService implements IEmailService {
             return response;
 
         } catch (MessagingException e) {
-            throw new FailedSendMailMessageException(e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 
@@ -90,7 +91,7 @@ public class EmailService implements IEmailService {
 
             File file = path.toFile();
 
-            settingMailSender(emailFileDto.getToUser(), emailFileDto.getSubject(), emailFileDto.getMessage(), file);
+            settinMailSender(emailFileDto.getToUser(), emailFileDto.getSubject(), emailFileDto.getMessage(), file);
 
             Map<String, String> response = new HashMap<>();
             response.put("estado", "enviado");
@@ -105,7 +106,7 @@ public class EmailService implements IEmailService {
 
     }
 
-    private void settingMailSender(String[] toUser, String subject, String message, File file) throws FailedSendMailMessageException {
+    private void settinMailSender(String[] toUser, String subject, String message, File file) throws FailedSendMailMessageException {
         try {
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true, StandardCharsets.UTF_8.name());

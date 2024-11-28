@@ -58,6 +58,9 @@ public class Auto {
     //@JsonManagedReference
     private List<Imagen> imagenes;
 
+    @OneToMany(mappedBy = "auto", cascade = CascadeType.ALL)
+    private List<Reserva> reservas;
+
     public Auto(String matricula, String descripcion, String marca, String modelo, String potenciaHP, String velocidad, String aceleracion, Double precioDia, String fechaFabricacion, boolean estaActivo, List<Categoria> categorias, List<Caracteristica> caracteristicas, List<Imagen> imagenes) {
         this.matricula = matricula;
         this.descripcion = descripcion;

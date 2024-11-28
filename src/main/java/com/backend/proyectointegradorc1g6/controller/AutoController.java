@@ -7,6 +7,7 @@ import com.backend.proyectointegradorc1g6.exception.ResourceNotFoundException;
 import com.backend.proyectointegradorc1g6.service.IAutoService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -46,6 +48,18 @@ public class AutoController {
     @GetMapping("/find/{id}")
     public ResponseEntity<AutoDtoOut> buscarAuto(@PathVariable Long id) {
         return new ResponseEntity<>(autoService.buscarAuto(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/find/marca/{marca}")
+    public ResponseEntity<List<AutoDtoOut>> buscarAutosByMarca(@PathVariable String marca) throws ResourceNotFoundException {
+        return new ResponseEntity<>(autoService.buscarAutosByMarca(marca), HttpStatus.OK);
+    }
+
+    @GetMapping("/find/available")
+    public ResponseEntity<List<AutoDtoOut>> buscarAutosDisponibles(
+            @RequestParam("fechaInicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio,
+            @RequestParam("fechaFin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin) {
+        return new ResponseEntity<>(autoService.buscarAutosDisponibles(fechaInicio, fechaFin), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")

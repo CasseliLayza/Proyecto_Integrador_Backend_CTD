@@ -20,6 +20,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 @Configuration
@@ -60,6 +61,7 @@ public class SecurityConfig {
                         .antMatchers(HttpMethod.PUT, "/autos/updates3/{id}").hasRole("ADMIN")
                         .antMatchers(HttpMethod.DELETE, "/autos/delete/{id}").hasRole("ADMIN")
                         .antMatchers(HttpMethod.POST, "/mail/send/**").permitAll()
+                        .antMatchers(HttpMethod.GET, "/reservations/**").permitAll()
                         .anyRequest().authenticated())
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
                 .addFilter(new JwtValidationFilter(authenticationManager()))

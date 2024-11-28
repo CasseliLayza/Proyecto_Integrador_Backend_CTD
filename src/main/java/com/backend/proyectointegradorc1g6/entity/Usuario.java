@@ -55,6 +55,9 @@ public class Usuario {
     @Column(length = 100)
     private String password;
 
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Reserva> reservas;
+
     public Usuario(String nombre, String apellido, int dni, int edad, String telefono, String email, String nacionalidad, boolean esAdmin, boolean estaActivo, List<Rol> roles, String userName, String password) {
         this.nombre = nombre;
         this.apellido = apellido;

@@ -62,7 +62,7 @@ public class Reserva {
                 ", lugarRecogida='" + lugarRecogida + '\'' +
                 ", estado=" + estado +
                 ", usuario=" + usuario +
-                ", auto=" + auto +
+                ", auto=" + auto.getId() +
                 '}';
     }
 }

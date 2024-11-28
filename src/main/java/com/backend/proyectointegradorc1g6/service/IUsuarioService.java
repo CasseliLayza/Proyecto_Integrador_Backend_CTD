@@ -18,6 +18,7 @@ public interface IUsuarioService {
     UsuarioDtoOut actualizarUsuario(UsuarioDtoInput usuarioDtoInput, Long id) throws ResourceNotFoundException;
 
     void eliminarUsuario(Long id) throws ResourceNotFoundException;
-
+    UsuarioDtoOut agregarAutoFavorito(Long usuarioId, Long autoId);
+    UsuarioDtoOut eliminarAutoFavorito(Long usuarioId, Long autoId);
     void eliminarAllUsuarios();
 }

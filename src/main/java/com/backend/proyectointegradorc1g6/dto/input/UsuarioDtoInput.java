@@ -1,6 +1,7 @@
 package com.backend.proyectointegradorc1g6.dto.input;
 
 import com.backend.proyectointegradorc1g6.dto.input.dtoUtils.OnCreate;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,7 +37,7 @@ public class UsuarioDtoInput {
 
     private boolean estaActivo;
     @NotBlank(message = "The value userName should not be empty")
-    @Size(max = 25, message = "The value userName should has max 25 characters")
+    @Size(max = 55, message = "The value userName should has max 55 characters")
     private String userName;
     @NotBlank(message = "The value password should not be empty", groups = OnCreate.class)
     @Size(max = 100, message = "The value password should has max 100 characters")

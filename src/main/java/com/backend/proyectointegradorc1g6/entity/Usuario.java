@@ -6,7 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -58,7 +61,18 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Reserva> reservas;
 
-    public Usuario(String nombre, String apellido, int dni, int edad, String telefono, String email, String nacionalidad, boolean esAdmin, boolean estaActivo, List<Rol> roles, String userName, String password) {
+    @ManyToMany
+    @JoinTable(
+            name = "usuario_auto_favorito",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "auto_id")
+    )
+    private Set<Auto> autosFavoritos = new HashSet<>();
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Resena> resenas = new ArrayList<>();
+
+    public Usuario(String nombre, String apellido, int dni, int edad, String telefono, String email, String nacionalidad, boolean esAdmin, boolean estaActivo, List<Rol> roles, String userName, String password, List<Reserva> reservas, Set<Auto> autosFavoritos, List<Resena> resenas) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -71,6 +85,9 @@ public class Usuario {
         this.roles = roles;
         this.userName = userName;
         this.password = password;
+        this.reservas = reservas;
+        this.autosFavoritos = autosFavoritos;
+        this.resenas = resenas;
     }
 
     @Override
@@ -89,6 +106,8 @@ public class Usuario {
                 ", roles=" + roles +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
+                //", reservas=" + reservas +
+                //", autosFavoritos=" + autosFavoritos +
                 '}';
     }
 }

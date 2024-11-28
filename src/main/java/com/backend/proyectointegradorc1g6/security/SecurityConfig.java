@@ -61,7 +61,13 @@ public class SecurityConfig {
                         .antMatchers(HttpMethod.PUT, "/autos/updates3/{id}").hasRole("ADMIN")
                         .antMatchers(HttpMethod.DELETE, "/autos/delete/{id}").hasRole("ADMIN")
                         .antMatchers(HttpMethod.POST, "/mail/send/**").permitAll()
+
                         .antMatchers(HttpMethod.GET, "/reservations/**").permitAll()
+                        .antMatchers(HttpMethod.POST, "/reservations/register").hasRole("USER")
+                        .antMatchers(HttpMethod.GET, "/reviews/**").permitAll()
+                        .antMatchers(HttpMethod.POST, "/reviews/register").hasRole("USER")
+                        .antMatchers(HttpMethod.DELETE, "/reviews/delete/{id}").hasRole("USER")
+                        .antMatchers(HttpMethod.GET, "/reviews/list/byuser/{usuarioId}").hasRole("USER")
                         .anyRequest().authenticated())
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
                 .addFilter(new JwtValidationFilter(authenticationManager()))

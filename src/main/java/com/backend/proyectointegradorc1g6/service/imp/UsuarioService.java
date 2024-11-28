@@ -2,6 +2,7 @@ package com.backend.proyectointegradorc1g6.service.imp;
 
 import com.backend.proyectointegradorc1g6.dto.input.UsuarioDtoInput;
 import com.backend.proyectointegradorc1g6.dto.output.UsuarioDtoOut;
+import com.backend.proyectointegradorc1g6.entity.Auto;
 import com.backend.proyectointegradorc1g6.entity.Rol;
 import com.backend.proyectointegradorc1g6.entity.Usuario;
 import com.backend.proyectointegradorc1g6.exception.DniDuplicadoException;
@@ -66,7 +67,6 @@ public class UsuarioService implements IUsuarioService {
         }
 
         Usuario usuarioARegistrar = modelMapper.map(usuarioDtoInput, Usuario.class);
-        ///////////////////////////REGISTER AND ROLES///////////////////////////
         Optional<Rol> rolUser = rolRepository.findByNombre("ROLE_USER");
         List<Rol> roles = new ArrayList<>();
         rolUser.ifPresent(roles::add);
@@ -77,7 +77,6 @@ public class UsuarioService implements IUsuarioService {
         usuarioARegistrar.setRoles(roles);
         usuarioARegistrar.setPassword(passwordEncoder.encode(usuarioARegistrar.getPassword()));
 
-        ///////////////////////////REGISTER AND ROLES///////////////////////////
 
         Usuario usuarioRegistrado = usuarioRepository.save(usuarioARegistrar);
         LOGGER.info("usuarioRegistrado --> {}", usuarioRegistrado.toString());
@@ -146,7 +145,6 @@ public class UsuarioService implements IUsuarioService {
             verificarDuplicidadUsuario(usuarioDtoInput, usuarioEncontrado);
             Usuario usuarioAAtualizar = modelMapper.map(usuarioDtoInput, Usuario.class);
 
-            ///////////////////////////REGISTER AND ROLES///////////////////////////
             Optional<Rol> rolUser = rolRepository.findByNombre("ROLE_USER");
             List<Rol> roles = new ArrayList<>();
             rolUser.ifPresent(roles::add);
@@ -155,14 +153,12 @@ public class UsuarioService implements IUsuarioService {
                 rolAdmin.ifPresent(roles::add);
             }
             usuarioAAtualizar.setRoles(roles);
-            ///////////////////////////Validation null///////////////////////////
             if (usuarioAAtualizar.getPassword() != null && !usuarioAAtualizar.getPassword().isEmpty()) {
                 usuarioAAtualizar.setPassword(passwordEncoder.encode(usuarioAAtualizar.getPassword()));
             } else {
                 usuarioAAtualizar.setPassword(usuarioEncontrado.getPassword());
             }
 
-            ///////////////////////////REGISTER AND ROLES///////////////////////////
             usuarioAAtualizar.setId(usuarioEncontrado.getId());
             Usuario usuarioActualizado = usuarioRepository.save(usuarioAAtualizar);
             LOGGER.info("usuarioActualizado --> {}", usuarioActualizado);
@@ -188,6 +184,51 @@ public class UsuarioService implements IUsuarioService {
             throw new ResourceNotFoundException("No existe registro de usuario con id: " + id);
 
         }
+    }
+
+    @Override
+    public UsuarioDtoOut agregarAutoFavorito(Long usuarioId, Long autoId) {
+
+        Usuario usuario = usuarioRepository.findById(usuarioId)
+                .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
+
+        Auto auto = AutoService.getAutosRepository().findById(autoId)
+                .orElseThrow(() -> new IllegalArgumentException("Auto no encontrado"));
+
+        usuario.getAutosFavoritos().add(auto);
+        Usuario usuarioFav = usuarioRepository.save(usuario);
+        LOGGER.info("Usuario con favoritos, con id --> {}", usuarioFav);
+
+        UsuarioDtoOut usuarioDtoOut = modelMapper.map(usuarioFav, UsuarioDtoOut.class);
+        LOGGER.info("usuarioDtoOut con favoritos, con id --> {}", usuarioDtoOut);
+
+        return usuarioDtoOut;
+
+    }
+
+    @Override
+    public UsuarioDtoOut eliminarAutoFavorito(Long usuarioId, Long autoId) {
+
+        Usuario usuario = usuarioRepository.findById(usuarioId)
+                .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
+
+        Auto auto = AutoService.getAutosRepository().findById(autoId)
+                .orElseThrow(() -> new IllegalArgumentException("Auto no encontrado"));
+
+        if (usuario.getAutosFavoritos().contains(auto)) {
+            usuario.getAutosFavoritos().remove(auto);
+        } else {
+            throw new IllegalArgumentException("El auto no está en la lista de favoritos del usuario");
+        }
+
+        Usuario usuarioFav = usuarioRepository.save(usuario);
+        LOGGER.info("Usuario con favoritos updated, con id --> {}", usuarioFav);
+
+        UsuarioDtoOut usuarioDtoOut = modelMapper.map(usuarioFav, UsuarioDtoOut.class);
+        LOGGER.info("usuarioDtoOut con favoritos, con id --> {}", usuarioDtoOut);
+
+        return usuarioDtoOut;
+
     }
 
     @Override

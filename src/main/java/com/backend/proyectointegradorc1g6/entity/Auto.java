@@ -6,7 +6,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -61,7 +65,13 @@ public class Auto {
     @OneToMany(mappedBy = "auto", cascade = CascadeType.ALL)
     private List<Reserva> reservas;
 
-    public Auto(String matricula, String descripcion, String marca, String modelo, String potenciaHP, String velocidad, String aceleracion, Double precioDia, String fechaFabricacion, boolean estaActivo, List<Categoria> categorias, List<Caracteristica> caracteristicas, List<Imagen> imagenes) {
+    @ManyToMany(mappedBy = "autosFavoritos")
+    private Set<Usuario> usuariosQueLoTienenComoFavorito = new HashSet<>();
+
+    @OneToMany(mappedBy = "auto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Resena> resenas = new ArrayList<>();
+
+    public Auto(String matricula, String descripcion, String marca, String modelo, String potenciaHP, String velocidad, String aceleracion, Double precioDia, String fechaFabricacion, boolean estaActivo, List<Categoria> categorias, List<Caracteristica> caracteristicas, List<Imagen> imagenes, List<Reserva> reservas, Set<Usuario> usuariosQueLoTienenComoFavorito, List<Resena> resenas) {
         this.matricula = matricula;
         this.descripcion = descripcion;
         this.marca = marca;
@@ -75,6 +85,9 @@ public class Auto {
         this.categorias = categorias;
         this.caracteristicas = caracteristicas;
         this.imagenes = imagenes;
+        this.reservas = reservas;
+        this.usuariosQueLoTienenComoFavorito = usuariosQueLoTienenComoFavorito;
+        this.resenas = resenas;
     }
 
     @Override
@@ -94,6 +107,9 @@ public class Auto {
                 ", categorias=" + categorias +
                 ", caracteristicas=" + caracteristicas +
                 ", imagenes=" + imagenes +
+                ", reservas=" + reservas +
+                ", usuariosQueLoTienenComoFavorito=" + usuariosQueLoTienenComoFavorito +
+                //", resenas=" + resenas +
                 '}';
     }
 }

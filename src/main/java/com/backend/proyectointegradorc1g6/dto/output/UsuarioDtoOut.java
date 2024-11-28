@@ -1,12 +1,15 @@
 package com.backend.proyectointegradorc1g6.dto.output;
 
+import com.backend.proyectointegradorc1g6.entity.Auto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -34,6 +37,8 @@ public class UsuarioDtoOut {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
+    private Set<AutoDtoOut> autosFavoritos;
+
     @Override
     public String toString() {
         return "UsuarioDtoOut{" +
@@ -47,8 +52,10 @@ public class UsuarioDtoOut {
                 ", nacionalidad='" + nacionalidad + '\'' +
                 ", esAdmin=" + esAdmin +
                 ", estaActivo=" + estaActivo +
+                ", roles=" + roles +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
+                ", autosFavoritos=" + autosFavoritos +
                 '}';
     }
 }

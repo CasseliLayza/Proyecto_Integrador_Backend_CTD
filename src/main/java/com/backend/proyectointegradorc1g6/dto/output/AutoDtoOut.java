@@ -1,7 +1,5 @@
 package com.backend.proyectointegradorc1g6.dto.output;
 
-import com.backend.proyectointegradorc1g6.dto.input.CaracteristicaDtoInput;
-import com.backend.proyectointegradorc1g6.entity.Categoria;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +27,8 @@ public class AutoDtoOut {
     private List<CaracteristicaDtoOut> caracteristicas;
     private List<ImagenDtoOut> imagenes;
 
+    private List<ResenaDtoOut> resenas;
+
     @Override
     public String toString() {
         return "AutoDtoOut{" +
@@ -46,6 +46,7 @@ public class AutoDtoOut {
                 ", categorias=" + categorias +
                 ", caracteristicas=" + caracteristicas +
                 ", imagenes=" + imagenes +
+                ", resenas=" + resenas +
                 '}';
     }
 }

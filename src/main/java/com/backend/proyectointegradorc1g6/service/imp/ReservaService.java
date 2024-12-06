@@ -1,9 +1,7 @@
 package com.backend.proyectointegradorc1g6.service.imp;
 
-import com.backend.proyectointegradorc1g6.dto.input.AutoDtoInput;
 import com.backend.proyectointegradorc1g6.dto.input.ReservaDtoInput;
 import com.backend.proyectointegradorc1g6.dto.input.ReservaRsmDtoInput;
-import com.backend.proyectointegradorc1g6.dto.input.UsuarioDtoInput;
 import com.backend.proyectointegradorc1g6.dto.output.ReservaDtoOut;
 import com.backend.proyectointegradorc1g6.entity.Auto;
 import com.backend.proyectointegradorc1g6.entity.Reserva;
@@ -80,7 +78,7 @@ public class ReservaService implements IReservaService {
     }
 
     @Override
-    public ReservaDtoOut crearReserva(ReservaRsmDtoInput reservaRsmDtoInput) {
+    public ReservaDtoOut crearReserva(ReservaRsmDtoInput reservaRsmDtoInput) throws BadRequestException {
         Long usuarioId = reservaRsmDtoInput.getUsuarioId();
         Long autoId = reservaRsmDtoInput.getAutoId();
         LocalDate fechaInicio = reservaRsmDtoInput.getFechaInicio();
@@ -90,19 +88,19 @@ public class ReservaService implements IReservaService {
             throw new IllegalArgumentException("La fecha de inicio no puede ser posterior a la fecha de fin.");
         }
 
+        Usuario usuarioBuscado = usuarioService.getUsuarioRepository().findById(usuarioId)
+                .orElseThrow(() -> new BadRequestException("Usuario no encontrado."));
+        Auto autoBuscado = AutoService.getAutosRepository().findById(autoId)
+                .orElseThrow(() -> new BadRequestException("Auto no encontrado."));
+
         List<Auto> autosDisponibles = AutoService.getAutosRepository().findAutosDisponibles(fechaInicio, fechaFin);
         if (autosDisponibles.stream().noneMatch(auto -> auto.getId().equals(autoId))) {
             throw new IllegalArgumentException("El auto no está disponible en las fechas seleccionadas.");
         }
 
-        Usuario usuario = usuarioService.getUsuarioRepository().findById(usuarioId)
-                .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado."));
-        Auto auto = AutoService.getAutosRepository().findById(autoId)
-                .orElseThrow(() -> new IllegalArgumentException("Auto no encontrado."));
-
         Reserva reserva = new Reserva();
-        reserva.setUsuario(usuario);
-        reserva.setAuto(auto);
+        reserva.setUsuario(usuarioBuscado);
+        reserva.setAuto(autoBuscado);
         reserva.setFechaInicio(fechaInicio);
         reserva.setFechaFin(fechaFin);
         reserva.setComentario(reservaRsmDtoInput.getComentario());
@@ -149,6 +147,37 @@ public class ReservaService implements IReservaService {
     }
 
     @Override
+    public List<ReservaDtoOut> buscarReservasByUsuario(Long usuarioId) throws ResourceNotFoundException {
+        LOGGER.info("usuarioId --> {}", usuarioId);
+
+        Usuario usuario = usuarioService.getUsuarioRepository().findById(usuarioId)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado. Busqueda de reservas no procesada"));
+
+        List<ReservaDtoOut> reservasDtoOuts = reservaRepository.findByUsuarioId(usuarioId).stream()
+                .map(reserva -> modelMapper.map(reserva, ReservaDtoOut.class))
+                .collect(Collectors.toList());
+        LOGGER.info("reservasDtoOuts --> {}", JsonPrinter.toString(reservasDtoOuts));
+
+        return reservasDtoOuts;
+    }
+
+    @Override
+    public List<ReservaDtoOut> buscarReservasByAuto(Long autoId) throws ResourceNotFoundException {
+        LOGGER.info("autoId --> {}", autoId);
+
+        Auto auto = AutoService.getAutosRepository().findById(autoId)
+                .orElseThrow(() -> new ResourceNotFoundException("Auto no encontrado. Busqueda de reservas no procesada"));
+
+        List<ReservaDtoOut> reservasDtoOuts = reservaRepository.findByAutoId(autoId).stream()
+                .map(reserva -> modelMapper.map(reserva, ReservaDtoOut.class))
+                .collect(Collectors.toList());
+        LOGGER.info("reservasDtoOuts --> {}", JsonPrinter.toString(reservasDtoOuts));
+
+        return reservasDtoOuts;
+
+    }
+
+    @Override
     public ReservaDtoOut actualizarReserva(ReservaRsmDtoInput reservaRsmDtoInput, Long id) throws
             ResourceNotFoundException {
 
@@ -158,24 +187,24 @@ public class ReservaService implements IReservaService {
         LocalDate fechaFin = reservaRsmDtoInput.getFechaFin();
 
         Reserva reservaBuscada = reservaRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Reserva no encontrada, verificar el id --> {}" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Reserva no encontrada, verificar el id --> " + id));
 
         if (fechaInicio.isAfter(fechaFin)) {
             throw new IllegalArgumentException("La fecha de inicio no puede ser posterior a la fecha de fin.");
         }
+
+        Usuario usuarioBuscado = usuarioService.getUsuarioRepository().findById(usuarioId)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no existe. Reserva no actualizada"));
+        Auto autoBuscado = AutoService.getAutosRepository().findById(autoId)
+                .orElseThrow(() -> new ResourceNotFoundException("Auto no existe. Reserva no actualizada"));
 
         List<Auto> autosDisponibles = AutoService.getAutosRepository().findAutosDisponiblesExcluyendoReserva(fechaInicio, fechaFin, id);
         if (autosDisponibles.stream().noneMatch(auto -> auto.getId().equals(autoId))) {
             throw new IllegalArgumentException("El auto no está disponible en las fechas seleccionadas.");
         }
 
-        Usuario usuario = usuarioService.getUsuarioRepository().findById(usuarioId)
-                .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado."));
-        Auto auto = AutoService.getAutosRepository().findById(autoId)
-                .orElseThrow(() -> new IllegalArgumentException("Auto no encontrado."));
-
-        reservaBuscada.setUsuario(usuario);
-        reservaBuscada.setAuto(auto);
+        reservaBuscada.setUsuario(usuarioBuscado);
+        reservaBuscada.setAuto(autoBuscado);
         reservaBuscada.setFechaInicio(fechaInicio);
         reservaBuscada.setFechaFin(fechaFin);
         reservaBuscada.setComentario(reservaRsmDtoInput.getComentario());

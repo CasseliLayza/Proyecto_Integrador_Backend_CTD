@@ -62,8 +62,10 @@ public class SecurityConfig {
                         .antMatchers(HttpMethod.DELETE, "/autos/delete/{id}").hasRole("ADMIN")
                         .antMatchers(HttpMethod.POST, "/mail/send/**").permitAll()
 
-                        .antMatchers(HttpMethod.GET, "/reservations/**").permitAll()
+                        .antMatchers(HttpMethod.GET, "/reservations/list").permitAll()
                         .antMatchers(HttpMethod.POST, "/reservations/register").hasRole("USER")
+                        .antMatchers(HttpMethod.GET, "/reservations/find/byuser/{usuarioId}").hasRole("USER")
+                        .antMatchers(HttpMethod.GET, "/reservations/find/byauto/{autoId}").hasRole("USER")
                         .antMatchers(HttpMethod.GET, "/reviews/**").permitAll()
                         .antMatchers(HttpMethod.POST, "/reviews/register").hasRole("USER")
                         .antMatchers(HttpMethod.DELETE, "/reviews/delete/{id}").hasRole("USER")

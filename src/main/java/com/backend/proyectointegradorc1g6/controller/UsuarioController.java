@@ -1,12 +1,8 @@
 package com.backend.proyectointegradorc1g6.controller;
 
-import com.backend.proyectointegradorc1g6.dto.input.CategoriaDtoInput;
 import com.backend.proyectointegradorc1g6.dto.input.UsuarioDtoInput;
 import com.backend.proyectointegradorc1g6.dto.input.dtoUtils.OnCreate;
-import com.backend.proyectointegradorc1g6.dto.output.AutoDtoOut;
-import com.backend.proyectointegradorc1g6.dto.output.CategoriaDtoOut;
 import com.backend.proyectointegradorc1g6.dto.output.UsuarioDtoOut;
-import com.backend.proyectointegradorc1g6.exception.CategoriaDuplicadaException;
 import com.backend.proyectointegradorc1g6.exception.DniDuplicadoException;
 import com.backend.proyectointegradorc1g6.exception.ResourceNotFoundException;
 import com.backend.proyectointegradorc1g6.service.IUsuarioService;
@@ -60,7 +56,7 @@ public class UsuarioController {
     @PutMapping("/update/{id}")
     public ResponseEntity<UsuarioDtoOut> actualizarUsuario(@RequestBody @Valid UsuarioDtoInput usuarioDtoInput, @PathVariable Long id) throws ResourceNotFoundException {
         usuarioDtoInput.setEsAdmin(false);
-        return actualizarUsuarioUpPrivilegio(usuarioDtoInput,id);
+        return actualizarUsuarioUpPrivilegio(usuarioDtoInput, id);
     }
 
     @DeleteMapping("delete/{id}")
@@ -77,12 +73,12 @@ public class UsuarioController {
 
     @PostMapping("/{usuarioId}/favorites/{autoId}")
     public ResponseEntity<UsuarioDtoOut> agregarAutoFavorito(@PathVariable Long usuarioId, @PathVariable Long autoId) {
-        return new ResponseEntity<>(usuarioService.agregarAutoFavorito(usuarioId,autoId), HttpStatus.CREATED);
+        return new ResponseEntity<>(usuarioService.agregarAutoFavorito(usuarioId, autoId), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{usuarioId}/favorites/{autoId}")
     public ResponseEntity<UsuarioDtoOut> eliminarAutoFavorito(@PathVariable Long usuarioId, @PathVariable Long autoId) {
-        return new ResponseEntity<>(usuarioService.eliminarAutoFavorito(usuarioId,autoId), HttpStatus.CREATED);
+        return new ResponseEntity<>(usuarioService.eliminarAutoFavorito(usuarioId, autoId), HttpStatus.CREATED);
     }
 
 }

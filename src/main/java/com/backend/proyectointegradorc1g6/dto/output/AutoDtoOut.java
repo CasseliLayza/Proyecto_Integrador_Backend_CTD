@@ -1,8 +1,5 @@
 package com.backend.proyectointegradorc1g6.dto.output;
 
-import com.backend.proyectointegradorc1g6.dto.input.CaracteristicaDtoInput;
-import com.backend.proyectointegradorc1g6.entity.Categoria;
-import com.backend.proyectointegradorc1g6.entity.Resena;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

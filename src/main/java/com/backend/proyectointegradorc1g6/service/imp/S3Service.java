@@ -43,13 +43,12 @@ public class S3Service implements IS3Service {
         ObjectMetadata objectMetadata = new ObjectMetadata();
         objectMetadata.setContentType(multipartFile.getContentType());
         objectMetadata.setContentLength(multipartFile.getSize());
-        //System.out.println("Content-Type: " + multipartFile.getContentType());
 
 
         try {
             PutObjectRequest putObjectRequest = new PutObjectRequest(BUCKET, key, multipartFile.getInputStream(), objectMetadata);
             amazonS3.putObject(putObjectRequest);
-            //return key;
+
             return amazonS3.getUrl(BUCKET, key).toString();
         } catch (Exception e) {
             throw new IssuePutObjectException("Error al subir imagen");

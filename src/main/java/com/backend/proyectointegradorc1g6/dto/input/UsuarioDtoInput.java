@@ -1,7 +1,6 @@
 package com.backend.proyectointegradorc1g6.dto.input;
 
 import com.backend.proyectointegradorc1g6.dto.input.dtoUtils.OnCreate;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

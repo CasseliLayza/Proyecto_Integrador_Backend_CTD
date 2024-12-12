@@ -153,6 +153,7 @@ public class ReservaService implements IReservaService {
         Usuario usuario = usuarioService.getUsuarioRepository().findById(usuarioId)
                 .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado. Busqueda de reservas no procesada"));
 
+        //List<ReservaDtoOut> reservasDtoOuts = reservaRepository.findReservasByUsuarioId(usuarioId).stream()
         List<ReservaDtoOut> reservasDtoOuts = reservaRepository.findByUsuarioId(usuarioId).stream()
                 .map(reserva -> modelMapper.map(reserva, ReservaDtoOut.class))
                 .collect(Collectors.toList());
@@ -239,9 +240,9 @@ public class ReservaService implements IReservaService {
         modelMapper.typeMap(ReservaDtoInput.class, Reserva.class)
                 .addMappings(mapper -> mapper.map(ReservaDtoInput::getUsuario, Reserva::setUsuario))
                 .addMappings(mapper -> mapper.map(ReservaDtoInput::getAuto, Reserva::setAuto));
-        modelMapper.typeMap(Reserva.class, ReservaDtoInput.class)
-                .addMappings(mapper -> mapper.map(Reserva::getUsuario, ReservaDtoInput::setUsuario))
-                .addMappings(mapper -> mapper.map(Reserva::getAuto, ReservaDtoInput::setAuto));
+        modelMapper.typeMap(Reserva.class, ReservaDtoOut.class)
+                .addMappings(mapper -> mapper.map(Reserva::getUsuario, ReservaDtoOut::setUsuario))
+                .addMappings(mapper -> mapper.map(Reserva::getAuto, ReservaDtoOut::setAuto));
 
     }
 

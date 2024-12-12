@@ -1,7 +1,5 @@
 package com.backend.proyectointegradorc1g6.dto.input;
 
-import com.backend.proyectointegradorc1g6.entity.Caracteristica;
-import com.backend.proyectointegradorc1g6.entity.Categoria;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,8 +9,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Getter

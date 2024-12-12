@@ -2,7 +2,6 @@ package com.backend.proyectointegradorc1g6.controller;
 
 import com.backend.proyectointegradorc1g6.dto.input.ResenaDtoInput;
 import com.backend.proyectointegradorc1g6.dto.output.ResenaDtoOut;
-import com.backend.proyectointegradorc1g6.exception.CategoriaEnUsoException;
 import com.backend.proyectointegradorc1g6.exception.ResourceNotFoundException;
 import com.backend.proyectointegradorc1g6.service.IResenaService;
 import org.springframework.beans.factory.annotation.Autowired;

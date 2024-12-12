@@ -67,7 +67,7 @@ public class UsuarioService implements IUsuarioService {
         }
 
         Usuario usuarioARegistrar = modelMapper.map(usuarioDtoInput, Usuario.class);
-        ///////////////////////////REGISTER AND ROLES///////////////////////////
+
         Optional<Rol> rolUser = rolRepository.findByNombre("ROLE_USER");
         List<Rol> roles = new ArrayList<>();
         rolUser.ifPresent(roles::add);
@@ -77,8 +77,6 @@ public class UsuarioService implements IUsuarioService {
         }
         usuarioARegistrar.setRoles(roles);
         usuarioARegistrar.setPassword(passwordEncoder.encode(usuarioARegistrar.getPassword()));
-
-        ///////////////////////////REGISTER AND ROLES///////////////////////////
 
         Usuario usuarioRegistrado = usuarioRepository.save(usuarioARegistrar);
         LOGGER.info("usuarioRegistrado --> {}", usuarioRegistrado.toString());
@@ -147,7 +145,6 @@ public class UsuarioService implements IUsuarioService {
             verificarDuplicidadUsuario(usuarioDtoInput, usuarioEncontrado);
             Usuario usuarioAAtualizar = modelMapper.map(usuarioDtoInput, Usuario.class);
 
-            ///////////////////////////REGISTER AND ROLES///////////////////////////
             Optional<Rol> rolUser = rolRepository.findByNombre("ROLE_USER");
             List<Rol> roles = new ArrayList<>();
             rolUser.ifPresent(roles::add);
@@ -156,14 +153,12 @@ public class UsuarioService implements IUsuarioService {
                 rolAdmin.ifPresent(roles::add);
             }
             usuarioAAtualizar.setRoles(roles);
-            ///////////////////////////Validation null///////////////////////////
             if (usuarioAAtualizar.getPassword() != null && !usuarioAAtualizar.getPassword().isEmpty()) {
                 usuarioAAtualizar.setPassword(passwordEncoder.encode(usuarioAAtualizar.getPassword()));
             } else {
                 usuarioAAtualizar.setPassword(usuarioEncontrado.getPassword());
             }
 
-            ///////////////////////////REGISTER AND ROLES///////////////////////////
             usuarioAAtualizar.setId(usuarioEncontrado.getId());
             Usuario usuarioActualizado = usuarioRepository.save(usuarioAAtualizar);
             LOGGER.info("usuarioActualizado --> {}", usuarioActualizado);
@@ -254,7 +249,6 @@ public class UsuarioService implements IUsuarioService {
     }
 
     private void configureMapping() {
-        //modelMapper.typeMap(AutoDtoInput.class, Auto.class)
         modelMapper.typeMap(Usuario.class, UsuarioDtoOut.class)
                 .addMappings(mapper -> mapper.map(Usuario::getRoles, UsuarioDtoOut::setRoles));
     }

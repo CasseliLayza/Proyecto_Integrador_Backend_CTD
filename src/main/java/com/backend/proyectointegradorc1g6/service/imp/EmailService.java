@@ -1,12 +1,13 @@
 package com.backend.proyectointegradorc1g6.service.imp;
 
 import com.backend.proyectointegradorc1g6.dto.input.EmailFileDto;
+import com.backend.proyectointegradorc1g6.dto.input.EmailReservDto;
 import com.backend.proyectointegradorc1g6.exception.FailedSendMailMessageException;
 import com.backend.proyectointegradorc1g6.service.IEmailService;
 import com.backend.proyectointegradorc1g6.service.senderutilities.MessageTemplate;
+import com.backend.proyectointegradorc1g6.service.senderutilities.MessageTemplateReserv;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -50,7 +51,7 @@ public class EmailService implements IEmailService {
     }
 
     @Override
-    public Map<String, String> sendEmailCustomer(String[] toUser, String subject, String message, String name, String logo) {
+    public Map<String, String> sendEmailCustomer(String[] toUser, String subject, String message, String name, String logo) throws FailedSendMailMessageException {
 
         String messagaFormat = MessageTemplate.TEMPLATE_MESSAGE;
 
@@ -76,8 +77,48 @@ public class EmailService implements IEmailService {
             return response;
 
         } catch (MessagingException e) {
-            throw new RuntimeException(e);
+            throw new FailedSendMailMessageException("Error al enviar register mail : " + e.getMessage());
         }
+    }
+
+    @Override
+    public Map<String, String> sendEmailCustomerReservation(String[] toUser, String subject, String message, String name, String logo, EmailReservDto details) throws FailedSendMailMessageException {
+
+        String messagaFormatReserv = MessageTemplateReserv.TEMPLATE_MESSAGE_RESERV;
+
+        messagaFormatReserv = messagaFormatReserv.replace("[Nombre del Usuario]", name)
+                .replace("[Correo del Usuario]", toUser[0])
+                .replace("[URL de inicio de sesion]", message)
+                .replace("[Logo Royal Ride]", logo)
+                .replace("[Modelo de auto]", details.getModelo())
+                .replace("[Matricula de auto]", details.getMatricula())
+                .replace("[Fecha de salida]", details.getSalida()[0])
+                .replace("[Lugar de salida]", details.getSalida()[1])
+                .replace("[Fecha de retorno]", details.getRetorno()[0])
+                .replace("[Lugar de retorno]", details.getRetorno()[1])
+                .replace("[Cantidad de dias]", details.getDias())
+                .replace("[Precio final]", details.getPrecio());
+
+        try {
+            MimeMessage mimeMessage = mailSender.createMimeMessage();
+            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true, StandardCharsets.UTF_8.name());
+
+            mimeMessageHelper.setFrom(enterpriseEmail);
+            mimeMessageHelper.setTo(toUser);
+            mimeMessageHelper.setSubject(subject);
+            mimeMessageHelper.setText(messagaFormatReserv, true);
+
+            mailSender.send(mimeMessage);
+
+            Map<String, String> response = new HashMap<>();
+            response.put("estado", "enviado");
+
+            return response;
+
+        } catch (MessagingException e) {
+            throw new FailedSendMailMessageException("Error en envio de reservation mail: " + e.getMessage());
+        }
+
     }
 
     @Override

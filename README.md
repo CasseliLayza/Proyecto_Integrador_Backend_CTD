@@ -63,20 +63,50 @@ La API utiliza **Spring Security** para controlar el acceso a sus endpoints medi
 | `PUT /characteristics/update/{id}`    | Actualizar una característica      | ADMIN            |
 | `DELETE /characteristics/delete/{id}` | Eliminar una característica        | ADMIN            |
 
+### Endpoints de Reservas
+
+| Endpoint                                    | Descripción                                    | Roles Permitidos |
+| ------------------------------------------- | ---------------------------------------------- | ---------------- |
+| `POST /reservations/create`                 | Crear una nueva reserva                        | USER, ADMIN      |
+| `GET /reservations/list`                    | Listar reserva                                 | USER, ADMIN      |
+| `GET /reservations/find/{id}`               | Obtener información de una reserva             | USER, ADMIN      |
+| `GET /reservations/find/byuser/{usuarioId}` | Obtener información de una reserva por usuario | USER, ADMIN      |
+| `GET /reservations/find/byauto/{autoId}`    | Obtener información de una reserva por auto    | USER, ADMIN      |
+| `PUT /reservations/update/{id}`             | Actualizar una reserva                         | USER, ADMIN      |
+| `DELETE /reservations/delete/{id}`          | Eliminar una reserva                           | USER, ADMIN      |
+
+### Endpoints de Favs
+
+| Endpoint                                       | Descripción                        | Roles Permitidos |
+| ---------------------------------------------- | ---------------------------------- | ---------------- |
+| `POST /users/{usuarioId}/favorites/{autoid}`   | Agregar un auto como favaorito     | USER             |
+| `DELETE /users/{usuarioId}/favorites/{autoId}` | Eliminar un auto de los favaoritos | USER             |
+
+### Endpoints de Reseñas
+
+| Endpoint                               | Descripción                                | Roles Permitidos |
+| -------------------------------------- | ------------------------------------------ | ---------------- |
+| `POST /reviews/register`               | Agregar una reseña                         | USER             |
+| `GET /reviews/list`                    | Obtener información de las reseñas         | USER             |
+| `GET /reviews/list/byuser/{usuarioId}` | Obtener información de reseñas por usuario | USER             |
+| `GET /reviews/list/byauto/{autoId}`    | Obtener información de reseñas por auto    | USER             |
+| `DELETE /reviews/delete/{id}`          | Eliminar una reseña                        | USER             |
+
 ### Endpoints de Envío de Correo
 
 | Endpoint             | Descripción                 | Roles Permitidos |
 | -------------------- | --------------------------- | ---------------- |
 | `POST /mail/send/**` | Enviar correos electrónicos | Todos            |
 
-
 ## Seguridad
-- Este proyecto utiliza Spring Security para la autenticación y autorización. La seguridad se maneja mediante ***JWT (JSON Web Token)***, que proporciona tokens seguros para autenticar usuarios. Los roles disponibles son:
+
+- Este proyecto utiliza Spring Security para la autenticación y autorización. La seguridad se maneja mediante **_JWT (JSON Web Token)_**, que proporciona tokens seguros para autenticar usuarios. Los roles disponibles son:
 
 - **USER**: Permite acceso a la visualización de autos, categorías y características.
-**ADMIN**: Permite todas las funcionalidades de gestión, incluyendo el registro y actualización de autos, categorías, características, reservas y usuarios.
+  **ADMIN**: Permite todas las funcionalidades de gestión, incluyendo el registro y actualización de autos, categorías, características, reservas y usuarios.
 
 ## Configuración de Seguridad
+
 - La configuración de seguridad se maneja a través de clases de configuración y filtros **JWT**. A continuación se muestra un fragmento de cómo se manejan los endpoints protegidos:
 
 ```java
@@ -97,6 +127,7 @@ protected void configure(HttpSecurity http) throws Exception {
 ```
 
 ## Envío de Correos Electrónicos
+
 - Para enviar correos electrónicos, el sistema utiliza **Spring Mail**, y los usuarios pueden enviar notificaciones a través del endpoint `/mail/send/**`. Esto permite enviar mensajes sobre las reservas y otras actividades relacionadas con el sistema.
 
 ## Dependencias del Proyecto
@@ -172,7 +203,6 @@ protected void configure(HttpSecurity http) throws Exception {
 
 ```
 
-
 ## Configuración
 
 1. **Base de Datos**: Configura la conexión a MySQL en el archivo `application.properties`.
@@ -185,6 +215,7 @@ protected void configure(HttpSecurity http) throws Exception {
    ```
 
 2. **AWS S3**: Configura las credenciales y el bucket de S3 para almacenar imágenes.
+
    ```properties
     cloud.aws.credentials.access-key=tu_access_key
     cloud.aws.credentials.secret-key=tu_secret_key
@@ -193,6 +224,7 @@ protected void configure(HttpSecurity http) throws Exception {
    ```
 
 3. **Mail service**: Configura las credenciales y el envio de mail de registro.
+
    ```properties
     spring.mail.host=tu_host
     spring.mail.port=puerto_host
@@ -208,8 +240,8 @@ Para ejecutar el proyecto:
 1. Clona el repositorio y navega al directorio.
 
    ```properties
-   git clone https://github.com/tu_usuario/tu_repositorio.git
-   cd tu_repositorio
+   git clone https://github.com/CasseliLayza/Proyecto_Integrador_Backend_CTD_C1_G6.git
+   cd Proyecto_Integrador_Backend_CTD_C1_G6
 
    ```
 
@@ -224,49 +256,55 @@ Para ejecutar el proyecto:
 
    ```properties
    mvn package
-   java -jar target/nombre_proyecto.jar
+   java -jar target/Proyecto_Integrador_Backend_CTD_C1_G6.jar
    ```
 
 ## Estructura del Proyecto
 
--  El proyecto se organiza de la siguiente manera:
+- El proyecto se organiza de la siguiente manera:
 
-   ```properties
-    src/ ├── main/ │ ├── java/ │ │ ├── com/ │ │ │ └── luxurycars/ │ │ │ ├── controller/ │ │ │ ├── dto/ │ │ │ ├── model/ │ │ │ ├── repository/ │ │ │ ├── security/ │ │ │ ├── service/ │ │ │ └── util/ │ └── resources/ │ ├── application.properties │ └── static/ └── test/ └── java/
+  ```properties
+   src/ ├── main/ │ ├── java/ │ │ ├── com/ │ │ │ └── luxurycars/ │ │ │ ├── controller/ │ │ │ ├── dto/ │ │ │ ├── model/ │ │ │ ├── repository/ │ │ │ ├── security/ │ │ │ ├── service/ │ │ │ └── util/ │ └── resources/ │ ├── application.properties │ └── static/ └── test/ └── java/
+  ```
 
 ## Enlace al API
+
 - Proporciona un enlace para acceder al API desplegado. Si aún no tienes un enlace definitivo, puedes dejar un marcador de posición.
 
+  ```markdown
+  El API está disponible en el siguiente enlace:
 
-    ```markdown
-    El API está disponible en el siguiente enlace:  
-    [Acceder al API](https://alluring-enchantment-production.up.railway.app)
+  [API- Ejemplo List Autos 🔥🚗](https://alluring-enchantment-production.up.railway.app/autos/list)
+  ```
 
-    ```
+  [API-List Autos 🔥🚗](https://alluring-enchantment-production.up.railway.app/autos/list)
+
 ## Contacto
+
 - Información de contacto para consultas o soporte.
 
-    ```markdown
-    Para más información o preguntas relacionadas con este proyecto, puedes contactarme en:  
+  ```markdown
+  Para más información o preguntas relacionadas con este proyecto, puedes contactarme en:
 
-    📧 **Correo:** [Caseli L](mailto:casseli.layza@gmail.com)
-    
-    ```
+  📧 **Correo:** [Caseli L](casseli.layza@gmail.com)
+  ```
+
+  📧 **Correo:** [Caseli Layza](mailto:casseli.layza@gmail.com)
 
 ## Licencia
+
 - Licencia MIT
 
-    ```markdown
-    Este proyecto está licenciado bajo la Licencia MIT.  
-    Consulta el archivo [LICENSE](LICENSE) para más detalles.
-
-    ```
+  ```markdown
+  Este proyecto está licenciado bajo la Licencia MIT.  
+  Consulta el archivo [LICENSE](LICENSE) para más detalles.
+  ```
 
 ## Derechos Reservados
+
 - Sobre los derechos reservados si es aplicable.
 
-    ```markdown
-    © 2024 Casseli L CodeCloudNet. Todos los derechos reservados.  
-    Este proyecto está protegido por las leyes de derechos de autor y no puede ser reproducido, distribuido ni utilizado sin autorización previa.
-    
-    ```
+  ```markdown
+  © 2024 Casseli L CodeCloudNet. Todos los derechos reservados.  
+  Este proyecto está protegido por las leyes de derechos de autor y no puede ser reproducido, distribuido ni utilizado sin autorización previa.
+  ```

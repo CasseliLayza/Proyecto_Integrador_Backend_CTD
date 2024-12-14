@@ -1,5 +1,9 @@
 # Proyecto Integrador Backend - Digital House
 
+![logo](https://tiny.one/37xv75fb)
+
+<!-- ![logo](https://github.com/angelicarm3/Proyecto_Integrador_Frontend_CTD_C1G6/blob/main/src/assets/brand/isoGold.png?raw=true) -->
+
 Este es un proyecto de backend desarrollado en Java con Spring Boot para el **Proyecto Integrador** de Digital House. El sistema está diseñado para gestionar una plataforma de alquiler de autos de lujo. El backend proporciona las funcionalidades necesarias para la creación, actualización y eliminación de autos, categorías, características, usuarios, así como el envío de correos electrónicos de notificación, reservas y mucho mas, todo esto con un control de acceso y autenticacion utilizando **Spring Security** y **JWT**.
 
 ## Tecnologías Utilizadas
@@ -269,7 +273,7 @@ Para ejecutar el proyecto:
 
 ## Enlace al API
 
-- Proporciona un enlace para acceder al API desplegado. Si aún no tienes un enlace definitivo, puedes dejar un marcador de posición.
+- Se proporciona un enlace para acceder al API desplegada.
 
   ```markdown
   El API está disponible en el siguiente enlace:
@@ -297,8 +301,10 @@ Para ejecutar el proyecto:
 
   ```markdown
   Este proyecto está licenciado bajo la Licencia MIT.  
-  Consulta el archivo [LICENSE](LICENSE) para más detalles.
+  Consulta el archivo LICENSE para más detalles.
   ```
+
+- Licencia [LICENSE](LICENSE)
 
 ## Derechos Reservados
 
@@ -308,3 +314,7 @@ Para ejecutar el proyecto:
   © 2024 Casseli L CodeCloudNet. Todos los derechos reservados.  
   Este proyecto está protegido por las leyes de derechos de autor y no puede ser reproducido, distribuido ni utilizado sin autorización previa.
   ```
+
+![logo](https://github.com/angelicarm3/Proyecto_Integrador_Frontend_CTD_C1G6/blob/main/src/assets/brand/logoGold.png?raw=true)
+
+![logo](https://github.com/angelicarm3/Proyecto_Integrador_Frontend_CTD_C1G6/blob/main/src/assets/brand/isoTipoGold.png?raw=true)
